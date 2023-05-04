@@ -264,27 +264,40 @@
         },
         {
           "id": "76wng9QPPi",
-          "name": "Info",
+          "name": "IconLabel",
           "type": "managed",
           "projectId": "s4A8zbVV2YneJHZ4PPAS7d",
-          "renderModuleFilePath": "plasmic/ovni/PlasmicInfo.tsx",
+          "renderModuleFilePath": "plasmic/ovni/PlasmicIconLabel.tsx",
           "importSpec": {
-            "modulePath": "Info.tsx"
+            "modulePath": "IconLabel.tsx"
           },
-          "cssFilePath": "plasmic/ovni/PlasmicInfo.module.css",
+          "cssFilePath": "plasmic/ovni/PlasmicIconLabel.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         },
         {
           "id": "3Xy4dZ9QFi",
-          "name": "OfferItem",
+          "name": "CardItem",
           "type": "managed",
           "projectId": "s4A8zbVV2YneJHZ4PPAS7d",
-          "renderModuleFilePath": "plasmic/ovni/PlasmicOfferItem.tsx",
+          "renderModuleFilePath": "plasmic/ovni/PlasmicCardItem.tsx",
           "importSpec": {
-            "modulePath": "OfferItem.tsx"
+            "modulePath": "CardItem.tsx"
           },
-          "cssFilePath": "plasmic/ovni/PlasmicOfferItem.module.css",
+          "cssFilePath": "plasmic/ovni/PlasmicCardItem.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "Dsd636-ORe",
+          "name": "Card",
+          "type": "managed",
+          "projectId": "s4A8zbVV2YneJHZ4PPAS7d",
+          "renderModuleFilePath": "plasmic/ovni/PlasmicCard.tsx",
+          "importSpec": {
+            "modulePath": "Card.tsx"
+          },
+          "cssFilePath": "plasmic/ovni/PlasmicCard.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
@@ -324,6 +337,16 @@
           "id": "sB3rP83jcG",
           "name": "PaymentsFill0Wght400Grad0Opsz48SvgIcon",
           "moduleFilePath": "plasmic/ovni/icons/PlasmicIcon__PaymentsFill0Wght400Grad0Opsz48Svg.tsx"
+        },
+        {
+          "id": "bdbiJ_6oxU",
+          "name": "FinanceChipsvgIcon",
+          "moduleFilePath": "plasmic/ovni/icons/PlasmicIcon__FinanceChipsvg.tsx"
+        },
+        {
+          "id": "CcAtW2QgHs",
+          "name": "CalculatesvgIcon",
+          "moduleFilePath": "plasmic/ovni/icons/PlasmicIcon__Calculatesvg.tsx"
         }
       ],
       "images": [],

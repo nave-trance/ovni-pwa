@@ -1,0 +1,65 @@
+.root {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  flex-direction: row;
+  justify-self: flex-start;
+  padding: 0px 8px;
+}
+.root > :global(.__wab_flex-container) {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-left: calc(0px - var(--token-c9dfRwU7m));
+  width: calc(100% + var(--token-c9dfRwU7m));
+  --plsmc-col-gap: var(--token-c9dfRwU7m);
+}
+.root > :global(.__wab_flex-container) > *,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.root > :global(.__wab_flex-container) > picture > img,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-left: var(--token-c9dfRwU7m);
+}
+.root {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  justify-self: flex-start;
+  padding: 0px 8px;
+}
+.slotTargetIcon {
+  font-size: var(--token-zXuA2tUoppBp);
+  text-align: center;
+}
+.svg__leDpt {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  left: auto;
+  top: auto;
+  width: 40px;
+  height: 100%;
+  flex-shrink: 0;
+  min-height: 0;
+}
+.text {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: var(--token-kovYF8KMD_gi);
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+  left: auto;
+  top: auto;
+  align-self: center;
+  text-align: left;
+  min-width: 0;
+}

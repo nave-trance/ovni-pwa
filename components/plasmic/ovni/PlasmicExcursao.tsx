@@ -42,10 +42,10 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import Info from "../../Info"; // plasmic-import: 76wng9QPPi/component
+import IconLabel from "../../IconLabel"; // plasmic-import: 76wng9QPPi/component
 import { AntdMenu } from "@plasmicpkgs/antd5/skinny/registerMenu"; // plasmic-import: fo-n3xHvdqt/codeComponent
 import { AntdMenuItem } from "@plasmicpkgs/antd5/skinny/registerMenu"; // plasmic-import: QSmezaW-Gyu/codeComponent
-import OfferItem from "../../OfferItem"; // plasmic-import: 3Xy4dZ9QFi/component
+import CardItem from "../../CardItem"; // plasmic-import: 3Xy4dZ9QFi/component
 import { RichTable } from "@plasmicpkgs/plasmic-rich-components"; // plasmic-import: k4RvFQUTZKCU/codeComponent
 import { tableHelpers as RichTable_Helpers } from "@plasmicpkgs/plasmic-rich-components"; // plasmic-import: k4RvFQUTZKCU/codeComponentHelper
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: eqBx5aJsUvSBW/codeComponent
@@ -62,6 +62,8 @@ import sty from "./PlasmicExcursao.module.css"; // plasmic-import: AHVBnXmex-jZ/
 import LocalActivitysvgIcon from "./icons/PlasmicIcon__LocalActivitysvg"; // plasmic-import: 9Ti-YtqDJa/icon
 import EventSeatsvgIcon from "./icons/PlasmicIcon__EventSeatsvg"; // plasmic-import: nUclHWRbUL/icon
 import PaymentsFill0Wght400Grad0Opsz48SvgIcon from "./icons/PlasmicIcon__PaymentsFill0Wght400Grad0Opsz48Svg"; // plasmic-import: sB3rP83jcG/icon
+import CalculatesvgIcon from "./icons/PlasmicIcon__Calculatesvg"; // plasmic-import: CcAtW2QgHs/icon
+import FinanceChipsvgIcon from "./icons/PlasmicIcon__FinanceChipsvg"; // plasmic-import: bdbiJ_6oxU/icon
 import ModeOfTravelsvgIcon from "./icons/PlasmicIcon__ModeOfTravelsvg"; // plasmic-import: WZEm74zGD5/icon
 
 export type PlasmicExcursao__VariantMembers = {};
@@ -82,16 +84,19 @@ export const PlasmicExcursao__ArgProps = new Array<ArgPropType>(
 export type PlasmicExcursao__OverridesType = {
   root?: p.Flex<"div">;
   tumbnail?: p.Flex<typeof p.PlasmicImg>;
-  heading?: p.Flex<"div">;
+  header?: p.Flex<"div">;
   left?: p.Flex<"div">;
   caption?: p.Flex<"div">;
   title?: p.Flex<"h2">;
   subtitle?: p.Flex<"h3">;
   date?: p.Flex<"div">;
   right?: p.Flex<"div">;
-  info?: p.Flex<"div">;
-  soldTickets?: p.Flex<typeof Info>;
-  emptySeats?: p.Flex<typeof Info>;
+  info1?: p.Flex<"div">;
+  soldTickets?: p.Flex<typeof IconLabel>;
+  emptySeats?: p.Flex<typeof IconLabel>;
+  info2?: p.Flex<"div">;
+  revenue?: p.Flex<typeof IconLabel>;
+  iconLabel?: p.Flex<typeof IconLabel>;
   menu?: p.Flex<typeof AntdMenu>;
   salesTab?: p.Flex<typeof AntdMenuItem>;
   tabButton1?: p.Flex<"div">;
@@ -103,7 +108,7 @@ export type PlasmicExcursao__OverridesType = {
   offers?: p.Flex<"div">;
   offersHeading?: p.Flex<"div">;
   offersTitle?: p.Flex<"h3">;
-  offerItem?: p.Flex<typeof OfferItem>;
+  batchItem?: p.Flex<typeof CardItem>;
   orders?: p.Flex<"div">;
   ordersHeading?: p.Flex<"div">;
   ordersTitle?: p.Flex<"h3">;
@@ -206,7 +211,7 @@ function PlasmicExcursao__RenderFunc(props: {
     name: "tour",
     getDataOp: () => ({
       sourceId: "3D2qpwXrTDzp5gVoPy8prT",
-      opId: "2f78b5cc-aa45-4734-9a28-fb17fc6852be",
+      opId: "0345af56-e087-48f3-85c3-9c20e4d92155",
       userArgs: {
         id: [
           (() => {
@@ -258,8 +263,21 @@ function PlasmicExcursao__RenderFunc(props: {
     name: "orders",
     getDataOp: () => ({
       sourceId: "3D2qpwXrTDzp5gVoPy8prT",
-      opId: "7a8b1727-1f87-478e-baa7-634d8ac2541d",
-      userArgs: {},
+      opId: "17d4d04c-88ef-4a3f-a38d-be4f526ad087",
+      userArgs: {
+        filters: [
+          (() => {
+            try {
+              return $queries.tour.data.title;
+            } catch (e) {
+              if (e instanceof TypeError) {
+                return null;
+              }
+              throw e;
+            }
+          })()
+        ]
+      },
       cacheKey: "plasmic.$.RLXJHFcm-.$.",
       invalidatedKeys: ["plasmic_refresh_all"],
       roleId: null
@@ -341,10 +359,12 @@ function PlasmicExcursao__RenderFunc(props: {
           />
 
           {(hasVariant(globalVariants, "screen", "sm") ? true : true) ? (
-            <div
-              data-plasmic-name={"heading"}
-              data-plasmic-override={overrides.heading}
-              className={classNames(projectcss.all, sty.heading)}
+            <p.Stack
+              as={"div"}
+              data-plasmic-name={"header"}
+              data-plasmic-override={overrides.header}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.header)}
             >
               {(hasVariant(globalVariants, "screen", "sm") ? true : true) ? (
                 <div
@@ -431,72 +451,110 @@ function PlasmicExcursao__RenderFunc(props: {
                   className={classNames(projectcss.all, sty.right)}
                 >
                   {true ? (
-                    <p.Stack
-                      as={"div"}
-                      data-plasmic-name={"info"}
-                      data-plasmic-override={overrides.info}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.info)}
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__m4Z9)}
                     >
-                      <Info
-                        data-plasmic-name={"soldTickets"}
-                        data-plasmic-override={overrides.soldTickets}
-                        className={classNames(
-                          "__wab_instance",
-                          sty.soldTickets
-                        )}
-                        icon={
-                          <LocalActivitysvgIcon
+                      {true ? (
+                        <p.Stack
+                          as={"div"}
+                          data-plasmic-name={"info1"}
+                          data-plasmic-override={overrides.info1}
+                          hasGap={true}
+                          className={classNames(projectcss.all, sty.info1)}
+                        >
+                          <IconLabel
+                            data-plasmic-name={"soldTickets"}
+                            data-plasmic-override={overrides.soldTickets}
                             className={classNames(
-                              projectcss.all,
-                              sty.svg__bsarG
+                              "__wab_instance",
+                              sty.soldTickets
                             )}
-                            role={"img"}
-                          />
-                        }
-                        unit={"Passageiros" as const}
-                        value={(() => {
-                          try {
-                            return $queries.tour.data.occupancy;
-                          } catch (e) {
-                            if (e instanceof TypeError) {
-                              return undefined;
+                            icon={
+                              <LocalActivitysvgIcon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__bsarG
+                                )}
+                                role={"img"}
+                              />
                             }
-                            throw e;
-                          }
-                        })()}
-                      />
+                            label={
+                              $queries.tour.data.occupancy + " passageiros"
+                            }
+                          />
 
-                      <Info
-                        data-plasmic-name={"emptySeats"}
-                        data-plasmic-override={overrides.emptySeats}
-                        className={classNames("__wab_instance", sty.emptySeats)}
-                        icon={
-                          <EventSeatsvgIcon
+                          <IconLabel
+                            data-plasmic-name={"emptySeats"}
+                            data-plasmic-override={overrides.emptySeats}
                             className={classNames(
-                              projectcss.all,
-                              sty.svg__gZAuL
+                              "__wab_instance",
+                              sty.emptySeats
                             )}
-                            role={"img"}
-                          />
-                        }
-                        unit={"Vagas" as const}
-                        value={(() => {
-                          try {
-                            return $queries.tour.data.avaiability;
-                          } catch (e) {
-                            if (e instanceof TypeError) {
-                              return undefined;
+                            icon={
+                              <EventSeatsvgIcon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__gZAuL
+                                )}
+                                role={"img"}
+                              />
                             }
-                            throw e;
-                          }
-                        })()}
-                      />
-                    </p.Stack>
+                            label={$queries.tour.data.avaiability + " vagas"}
+                          />
+                        </p.Stack>
+                      ) : null}
+                      {true ? (
+                        <p.Stack
+                          as={"div"}
+                          data-plasmic-name={"info2"}
+                          data-plasmic-override={overrides.info2}
+                          hasGap={true}
+                          className={classNames(projectcss.all, sty.info2)}
+                        >
+                          <IconLabel
+                            data-plasmic-name={"revenue"}
+                            data-plasmic-override={overrides.revenue}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.revenue
+                            )}
+                            icon={
+                              <PaymentsFill0Wght400Grad0Opsz48SvgIcon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__y0Qi8
+                                )}
+                                role={"img"}
+                              />
+                            }
+                            label={"R$ " + $queries.tour.data.revenue}
+                          />
+
+                          <IconLabel
+                            data-plasmic-name={"iconLabel"}
+                            data-plasmic-override={overrides.iconLabel}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.iconLabel
+                            )}
+                            icon={
+                              <CalculatesvgIcon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__z63Ra
+                                )}
+                                role={"img"}
+                              />
+                            }
+                            label={"R$ " + $queries.tour.data.average_price}
+                          />
+                        </p.Stack>
+                      ) : null}
+                    </div>
                   ) : null}
                 </div>
               ) : null}
-            </div>
+            </p.Stack>
           ) : null}
           <AntdMenu
             data-plasmic-name={"menu"}
@@ -594,7 +652,7 @@ function PlasmicExcursao__RenderFunc(props: {
                     }
                   }}
                 >
-                  <PaymentsFill0Wght400Grad0Opsz48SvgIcon
+                  <FinanceChipsvgIcon
                     className={classNames(projectcss.all, sty.svg__mlLUo)}
                     role={"img"}
                   />
@@ -776,35 +834,13 @@ function PlasmicExcursao__RenderFunc(props: {
                       }
                     })() ?? []
                   ).map((batch, currentIndex) => (
-                    <OfferItem
-                      data-plasmic-name={"offerItem"}
-                      data-plasmic-override={overrides.offerItem}
-                      className={classNames("__wab_instance", sty.offerItem)}
+                    <CardItem
+                      data-plasmic-name={"batchItem"}
+                      data-plasmic-override={overrides.batchItem}
+                      className={classNames("__wab_instance", sty.batchItem)}
                       description={batch.description}
+                      highlight={batch.sold + " pedidos"}
                       key={currentIndex}
-                      sold={
-                        hasVariant(globalVariants, "screen", "sm")
-                          ? (() => {
-                              try {
-                                return batch.sold;
-                              } catch (e) {
-                                if (e instanceof TypeError) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          : (() => {
-                              try {
-                                return batch.sold;
-                              } catch (e) {
-                                if (e instanceof TypeError) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                      }
                       title={batch.title}
                     />
                   ))}
@@ -862,7 +898,7 @@ function PlasmicExcursao__RenderFunc(props: {
                             {
                               key: "id",
                               fieldId: "id",
-                              title: " ",
+                              title: "id",
                               dataType: "number",
                               isHidden: true
                             },
@@ -880,6 +916,23 @@ function PlasmicExcursao__RenderFunc(props: {
                               dataType: "string",
                               expr: null
                             },
+                            {
+                              key: "status",
+                              fieldId: "status",
+                              title: "Status"
+                            },
+                            {
+                              key: "total",
+                              fieldId: "total",
+                              expr: null,
+                              title: "Total"
+                            },
+                            {
+                              key: "receipt",
+                              fieldId: "receipt",
+                              isHidden: false,
+                              title: "Recibo"
+                            },
                             { key: "batch", fieldId: "batch", isHidden: true },
                             {
                               key: "tickets",
@@ -891,14 +944,7 @@ function PlasmicExcursao__RenderFunc(props: {
                               fieldId: "passengers",
                               isHidden: true
                             },
-                            { key: "status", fieldId: "status" },
                             { key: "tour", fieldId: "tour", isHidden: true },
-                            { key: "total", fieldId: "total", expr: null },
-                            {
-                              key: "receipt",
-                              fieldId: "receipt",
-                              isHidden: false
-                            },
                             {
                               key: "record_id",
                               fieldId: "record_id",
@@ -921,7 +967,7 @@ function PlasmicExcursao__RenderFunc(props: {
                           __composite["3"]["expr"] = currentItem => {
                             return currentItem.buyer_name;
                           };
-                          __composite["9"]["expr"] = currentItem => {
+                          __composite["5"]["expr"] = currentItem => {
                             return "R$ " + currentItem.total;
                           };
                           return __composite;
@@ -933,7 +979,7 @@ function PlasmicExcursao__RenderFunc(props: {
                           "sm"
                         )
                           ? true
-                          : undefined,
+                          : false,
                         hideDensity: hasVariant(globalVariants, "screen", "sm")
                           ? true
                           : undefined,
@@ -963,6 +1009,7 @@ function PlasmicExcursao__RenderFunc(props: {
                             RichTable_Helpers
                           ).apply(null, eventArgs);
                         },
+                        pagination: true,
                         selectedRowKey: p.generateStateValueProp($state, [
                           "table",
                           "selectedRowKey"
@@ -1117,16 +1164,19 @@ const PlasmicDescendants = {
   root: [
     "root",
     "tumbnail",
-    "heading",
+    "header",
     "left",
     "caption",
     "title",
     "subtitle",
     "date",
     "right",
-    "info",
+    "info1",
     "soldTickets",
     "emptySeats",
+    "info2",
+    "revenue",
+    "iconLabel",
     "menu",
     "salesTab",
     "tabButton1",
@@ -1138,7 +1188,7 @@ const PlasmicDescendants = {
     "offers",
     "offersHeading",
     "offersTitle",
-    "offerItem",
+    "batchItem",
     "orders",
     "ordersHeading",
     "ordersTitle",
@@ -1149,27 +1199,41 @@ const PlasmicDescendants = {
     "table2"
   ],
   tumbnail: ["tumbnail"],
-  heading: [
-    "heading",
+  header: [
+    "header",
     "left",
     "caption",
     "title",
     "subtitle",
     "date",
     "right",
-    "info",
+    "info1",
     "soldTickets",
-    "emptySeats"
+    "emptySeats",
+    "info2",
+    "revenue",
+    "iconLabel"
   ],
   left: ["left", "caption", "title", "subtitle", "date"],
   caption: ["caption", "title", "subtitle"],
   title: ["title"],
   subtitle: ["subtitle"],
   date: ["date"],
-  right: ["right", "info", "soldTickets", "emptySeats"],
-  info: ["info", "soldTickets", "emptySeats"],
+  right: [
+    "right",
+    "info1",
+    "soldTickets",
+    "emptySeats",
+    "info2",
+    "revenue",
+    "iconLabel"
+  ],
+  info1: ["info1", "soldTickets", "emptySeats"],
   soldTickets: ["soldTickets"],
   emptySeats: ["emptySeats"],
+  info2: ["info2", "revenue", "iconLabel"],
+  revenue: ["revenue"],
+  iconLabel: ["iconLabel"],
   menu: ["menu", "salesTab", "tabButton1", "tripsTab", "tabButton2", "viagens"],
   salesTab: ["salesTab", "tabButton1"],
   tabButton1: ["tabButton1"],
@@ -1182,7 +1246,7 @@ const PlasmicDescendants = {
     "offers",
     "offersHeading",
     "offersTitle",
-    "offerItem",
+    "batchItem",
     "orders",
     "ordersHeading",
     "ordersTitle",
@@ -1197,16 +1261,16 @@ const PlasmicDescendants = {
     "offers",
     "offersHeading",
     "offersTitle",
-    "offerItem",
+    "batchItem",
     "orders",
     "ordersHeading",
     "ordersTitle",
     "table"
   ],
-  offers: ["offers", "offersHeading", "offersTitle", "offerItem"],
+  offers: ["offers", "offersHeading", "offersTitle", "batchItem"],
   offersHeading: ["offersHeading", "offersTitle"],
   offersTitle: ["offersTitle"],
-  offerItem: ["offerItem"],
+  batchItem: ["batchItem"],
   orders: ["orders", "ordersHeading", "ordersTitle", "table"],
   ordersHeading: ["ordersHeading", "ordersTitle"],
   ordersTitle: ["ordersTitle"],
@@ -1222,16 +1286,19 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   tumbnail: typeof p.PlasmicImg;
-  heading: "div";
+  header: "div";
   left: "div";
   caption: "div";
   title: "h2";
   subtitle: "h3";
   date: "div";
   right: "div";
-  info: "div";
-  soldTickets: typeof Info;
-  emptySeats: typeof Info;
+  info1: "div";
+  soldTickets: typeof IconLabel;
+  emptySeats: typeof IconLabel;
+  info2: "div";
+  revenue: typeof IconLabel;
+  iconLabel: typeof IconLabel;
   menu: typeof AntdMenu;
   salesTab: typeof AntdMenuItem;
   tabButton1: "div";
@@ -1243,7 +1310,7 @@ type NodeDefaultElementType = {
   offers: "div";
   offersHeading: "div";
   offersTitle: "h3";
-  offerItem: typeof OfferItem;
+  batchItem: typeof CardItem;
   orders: "div";
   ordersHeading: "div";
   ordersTitle: "h3";
@@ -1315,16 +1382,19 @@ export const PlasmicExcursao = Object.assign(
   {
     // Helper components rendering sub-elements
     tumbnail: makeNodeComponent("tumbnail"),
-    heading: makeNodeComponent("heading"),
+    header: makeNodeComponent("header"),
     left: makeNodeComponent("left"),
     caption: makeNodeComponent("caption"),
     title: makeNodeComponent("title"),
     subtitle: makeNodeComponent("subtitle"),
     date: makeNodeComponent("date"),
     right: makeNodeComponent("right"),
-    info: makeNodeComponent("info"),
+    info1: makeNodeComponent("info1"),
     soldTickets: makeNodeComponent("soldTickets"),
     emptySeats: makeNodeComponent("emptySeats"),
+    info2: makeNodeComponent("info2"),
+    revenue: makeNodeComponent("revenue"),
+    iconLabel: makeNodeComponent("iconLabel"),
     menu: makeNodeComponent("menu"),
     salesTab: makeNodeComponent("salesTab"),
     tabButton1: makeNodeComponent("tabButton1"),
@@ -1336,7 +1406,7 @@ export const PlasmicExcursao = Object.assign(
     offers: makeNodeComponent("offers"),
     offersHeading: makeNodeComponent("offersHeading"),
     offersTitle: makeNodeComponent("offersTitle"),
-    offerItem: makeNodeComponent("offerItem"),
+    batchItem: makeNodeComponent("batchItem"),
     orders: makeNodeComponent("orders"),
     ordersHeading: makeNodeComponent("ordersHeading"),
     ordersTitle: makeNodeComponent("ordersTitle"),
