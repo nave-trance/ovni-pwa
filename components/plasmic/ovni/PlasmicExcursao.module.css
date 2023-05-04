@@ -520,7 +520,7 @@
   min-width: 0;
 }
 .body {
-  display: grid;
+  display: plasmic-content-layout;
   position: relative;
   align-content: flex-start;
   justify-items: center;

@@ -349,7 +349,13 @@
           "moduleFilePath": "plasmic/ovni/icons/PlasmicIcon__Calculatesvg.tsx"
         }
       ],
-      "images": [],
+      "images": [
+        {
+          "id": "-j1y9uJiB",
+          "name": "navetrance.png",
+          "filePath": "../public/plasmic/ovni/images/navetrancepng.png"
+        }
+      ],
       "indirect": false,
       "globalContextsFilePath": "plasmic/ovni/PlasmicGlobalContextsProvider.tsx",
       "codeComponents": [
@@ -373,6 +379,12 @@
         "name": "Screen",
         "projectId": "s4A8zbVV2YneJHZ4PPAS7d",
         "contextFilePath": "plasmic/ovni/PlasmicGlobalVariant__Screen.tsx"
+      },
+      {
+        "id": "PeFX2YM5t7",
+        "name": "Schedule",
+        "projectId": "s4A8zbVV2YneJHZ4PPAS7d",
+        "contextFilePath": "plasmic/ovni/PlasmicGlobalVariant__Schedule.tsx"
       }
     ]
   },

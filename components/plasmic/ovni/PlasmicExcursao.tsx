@@ -227,7 +227,7 @@ function PlasmicExcursao__RenderFunc(props: {
         ]
       },
       cacheKey: "plasmic.$.KuPiQuxZx.$.",
-      invalidatedKeys: ["plasmic_refresh_all"],
+      invalidatedKeys: null,
       roleId: null
     }),
     $queries,
@@ -253,7 +253,7 @@ function PlasmicExcursao__RenderFunc(props: {
         ]
       },
       cacheKey: "plasmic.$.bPvUNNHv5.$.",
-      invalidatedKeys: ["plasmic_refresh_all"],
+      invalidatedKeys: null,
       roleId: null
     }),
     $queries,
@@ -279,7 +279,7 @@ function PlasmicExcursao__RenderFunc(props: {
         ]
       },
       cacheKey: "plasmic.$.RLXJHFcm-.$.",
-      invalidatedKeys: ["plasmic_refresh_all"],
+      invalidatedKeys: null,
       roleId: null
     }),
     $queries,
@@ -433,7 +433,7 @@ function PlasmicExcursao__RenderFunc(props: {
                   >
                     {(() => {
                       try {
-                        return $queries.tour.data.start[0];
+                        return $queries.tour.data.datetime[0];
                       } catch (e) {
                         if (e instanceof TypeError) {
                           return "Enter some text";
@@ -565,7 +565,79 @@ function PlasmicExcursao__RenderFunc(props: {
               data-plasmic-name={"salesTab"}
               data-plasmic-override={overrides.salesTab}
               className={classNames("__wab_instance", sty.salesTab)}
-              key={"menuItemKey1" as const}
+              key={"sales" as const}
+              onClick={async () => {
+                const $steps = {};
+                $steps["updateActiveView"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: __wrapUserFunction(
+                          {
+                            type: "InteractionArgLoc",
+                            actionName: "updateVariable",
+                            interactionUuid: "ZyRu08ClS",
+                            componentUuid: "AHVBnXmex-jZ",
+                            argName: "variable"
+                          },
+                          () => ({
+                            objRoot: $state,
+                            variablePath: ["activeView"]
+                          })
+                        ),
+                        operation: __wrapUserFunction(
+                          {
+                            type: "InteractionArgLoc",
+                            actionName: "updateVariable",
+                            interactionUuid: "ZyRu08ClS",
+                            componentUuid: "AHVBnXmex-jZ",
+                            argName: "operation"
+                          },
+                          () => 0
+                        ),
+                        value: __wrapUserFunction(
+                          {
+                            type: "InteractionArgLoc",
+                            actionName: "updateVariable",
+                            interactionUuid: "ZyRu08ClS",
+                            componentUuid: "AHVBnXmex-jZ",
+                            argName: "value"
+                          },
+                          () => "sales"
+                        )
+                      };
+                      return __wrapUserFunction(
+                        {
+                          type: "InteractionLoc",
+                          actionName: "updateVariable",
+                          interactionUuid: "ZyRu08ClS",
+                          componentUuid: "AHVBnXmex-jZ"
+                        },
+                        () =>
+                          (({ variable, value, startIndex, deleteCount }) => {
+                            const { objRoot, variablePath } = variable;
+
+                            p.set(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]),
+                        actionArgs
+                      );
+                    })()
+                  : undefined;
+                if (
+                  typeof $steps["updateActiveView"] === "object" &&
+                  typeof $steps["updateActiveView"].then === "function"
+                ) {
+                  $steps["updateActiveView"] = await __wrapUserPromise(
+                    {
+                      type: "InteractionLoc",
+                      actionName: "updateVariable",
+                      interactionUuid: "ZyRu08ClS",
+                      componentUuid: "AHVBnXmex-jZ"
+                    },
+                    $steps["updateActiveView"]
+                  );
+                }
+              }}
             >
               {true ? (
                 <p.Stack
@@ -574,83 +646,6 @@ function PlasmicExcursao__RenderFunc(props: {
                   data-plasmic-override={overrides.tabButton1}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.tabButton1)}
-                  onClick={async event => {
-                    const $steps = {};
-                    $steps["updateActiveView"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: __wrapUserFunction(
-                              {
-                                type: "InteractionArgLoc",
-                                actionName: "updateVariable",
-                                interactionUuid: "0ZVUvmWA-",
-                                componentUuid: "AHVBnXmex-jZ",
-                                argName: "variable"
-                              },
-                              () => ({
-                                objRoot: $state,
-                                variablePath: ["activeView"]
-                              })
-                            ),
-                            operation: __wrapUserFunction(
-                              {
-                                type: "InteractionArgLoc",
-                                actionName: "updateVariable",
-                                interactionUuid: "0ZVUvmWA-",
-                                componentUuid: "AHVBnXmex-jZ",
-                                argName: "operation"
-                              },
-                              () => 0
-                            ),
-                            value: __wrapUserFunction(
-                              {
-                                type: "InteractionArgLoc",
-                                actionName: "updateVariable",
-                                interactionUuid: "0ZVUvmWA-",
-                                componentUuid: "AHVBnXmex-jZ",
-                                argName: "value"
-                              },
-                              () => "sales"
-                            )
-                          };
-                          return __wrapUserFunction(
-                            {
-                              type: "InteractionLoc",
-                              actionName: "updateVariable",
-                              interactionUuid: "0ZVUvmWA-",
-                              componentUuid: "AHVBnXmex-jZ"
-                            },
-                            () =>
-                              (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                const { objRoot, variablePath } = variable;
-
-                                p.set(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]),
-                            actionArgs
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      typeof $steps["updateActiveView"] === "object" &&
-                      typeof $steps["updateActiveView"].then === "function"
-                    ) {
-                      $steps["updateActiveView"] = await __wrapUserPromise(
-                        {
-                          type: "InteractionLoc",
-                          actionName: "updateVariable",
-                          interactionUuid: "0ZVUvmWA-",
-                          componentUuid: "AHVBnXmex-jZ"
-                        },
-                        $steps["updateActiveView"]
-                      );
-                    }
-                  }}
                 >
                   <FinanceChipsvgIcon
                     className={classNames(projectcss.all, sty.svg__mlLUo)}
@@ -673,7 +668,79 @@ function PlasmicExcursao__RenderFunc(props: {
               data-plasmic-name={"tripsTab"}
               data-plasmic-override={overrides.tripsTab}
               className={classNames("__wab_instance", sty.tripsTab)}
-              key={"menuItemKey2" as const}
+              key={"trips" as const}
+              onClick={async () => {
+                const $steps = {};
+                $steps["updateActiveView"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: __wrapUserFunction(
+                          {
+                            type: "InteractionArgLoc",
+                            actionName: "updateVariable",
+                            interactionUuid: "XnCHF0InJ",
+                            componentUuid: "AHVBnXmex-jZ",
+                            argName: "variable"
+                          },
+                          () => ({
+                            objRoot: $state,
+                            variablePath: ["activeView"]
+                          })
+                        ),
+                        operation: __wrapUserFunction(
+                          {
+                            type: "InteractionArgLoc",
+                            actionName: "updateVariable",
+                            interactionUuid: "XnCHF0InJ",
+                            componentUuid: "AHVBnXmex-jZ",
+                            argName: "operation"
+                          },
+                          () => 0
+                        ),
+                        value: __wrapUserFunction(
+                          {
+                            type: "InteractionArgLoc",
+                            actionName: "updateVariable",
+                            interactionUuid: "XnCHF0InJ",
+                            componentUuid: "AHVBnXmex-jZ",
+                            argName: "value"
+                          },
+                          () => "trips"
+                        )
+                      };
+                      return __wrapUserFunction(
+                        {
+                          type: "InteractionLoc",
+                          actionName: "updateVariable",
+                          interactionUuid: "XnCHF0InJ",
+                          componentUuid: "AHVBnXmex-jZ"
+                        },
+                        () =>
+                          (({ variable, value, startIndex, deleteCount }) => {
+                            const { objRoot, variablePath } = variable;
+
+                            p.set(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]),
+                        actionArgs
+                      );
+                    })()
+                  : undefined;
+                if (
+                  typeof $steps["updateActiveView"] === "object" &&
+                  typeof $steps["updateActiveView"].then === "function"
+                ) {
+                  $steps["updateActiveView"] = await __wrapUserPromise(
+                    {
+                      type: "InteractionLoc",
+                      actionName: "updateVariable",
+                      interactionUuid: "XnCHF0InJ",
+                      componentUuid: "AHVBnXmex-jZ"
+                    },
+                    $steps["updateActiveView"]
+                  );
+                }
+              }}
             >
               <p.Stack
                 as={"div"}
@@ -681,78 +748,6 @@ function PlasmicExcursao__RenderFunc(props: {
                 data-plasmic-override={overrides.tabButton2}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.tabButton2)}
-                onClick={async event => {
-                  const $steps = {};
-                  $steps["updateActiveView"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: __wrapUserFunction(
-                            {
-                              type: "InteractionArgLoc",
-                              actionName: "updateVariable",
-                              interactionUuid: "aukxhkI5C",
-                              componentUuid: "AHVBnXmex-jZ",
-                              argName: "variable"
-                            },
-                            () => ({
-                              objRoot: $state,
-                              variablePath: ["activeView"]
-                            })
-                          ),
-                          operation: __wrapUserFunction(
-                            {
-                              type: "InteractionArgLoc",
-                              actionName: "updateVariable",
-                              interactionUuid: "aukxhkI5C",
-                              componentUuid: "AHVBnXmex-jZ",
-                              argName: "operation"
-                            },
-                            () => 0
-                          ),
-                          value: __wrapUserFunction(
-                            {
-                              type: "InteractionArgLoc",
-                              actionName: "updateVariable",
-                              interactionUuid: "aukxhkI5C",
-                              componentUuid: "AHVBnXmex-jZ",
-                              argName: "value"
-                            },
-                            () => "trips"
-                          )
-                        };
-                        return __wrapUserFunction(
-                          {
-                            type: "InteractionLoc",
-                            actionName: "updateVariable",
-                            interactionUuid: "aukxhkI5C",
-                            componentUuid: "AHVBnXmex-jZ"
-                          },
-                          () =>
-                            (({ variable, value, startIndex, deleteCount }) => {
-                              const { objRoot, variablePath } = variable;
-
-                              p.set(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]),
-                          actionArgs
-                        );
-                      })()
-                    : undefined;
-                  if (
-                    typeof $steps["updateActiveView"] === "object" &&
-                    typeof $steps["updateActiveView"].then === "function"
-                  ) {
-                    $steps["updateActiveView"] = await __wrapUserPromise(
-                      {
-                        type: "InteractionLoc",
-                        actionName: "updateVariable",
-                        interactionUuid: "aukxhkI5C",
-                        componentUuid: "AHVBnXmex-jZ"
-                      },
-                      $steps["updateActiveView"]
-                    );
-                  }
-                }}
               >
                 <ModeOfTravelsvgIcon
                   className={classNames(projectcss.all, sty.svg__qwsmA)}
@@ -773,245 +768,378 @@ function PlasmicExcursao__RenderFunc(props: {
               </p.Stack>
             </AntdMenuItem>
           </AntdMenu>
-          <section
-            data-plasmic-name={"body"}
-            data-plasmic-override={overrides.body}
-            className={classNames(projectcss.all, sty.body)}
-          >
-            {(() => {
-              try {
-                return $state.activeView == "sales";
-              } catch (e) {
-                if (e instanceof TypeError) {
-                  return true;
+          {true ? (
+            <section
+              data-plasmic-name={"body"}
+              data-plasmic-override={overrides.body}
+              className={classNames(projectcss.all, sty.body)}
+            >
+              {(() => {
+                try {
+                  return $state.activeView == "sales";
+                } catch (e) {
+                  if (e instanceof TypeError) {
+                    return true;
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })() ? (
-              <p.Stack
-                as={"div"}
-                data-plasmic-name={"salesView"}
-                data-plasmic-override={overrides.salesView}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.salesView)}
-              >
+              })() ? (
                 <p.Stack
                   as={"div"}
-                  data-plasmic-name={"offers"}
-                  data-plasmic-override={overrides.offers}
+                  data-plasmic-name={"salesView"}
+                  data-plasmic-override={overrides.salesView}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.offers)}
+                  className={classNames(projectcss.all, sty.salesView)}
                 >
-                  {true ? (
-                    <div
-                      data-plasmic-name={"offersHeading"}
-                      data-plasmic-override={overrides.offersHeading}
-                      className={classNames(projectcss.all, sty.offersHeading)}
-                    >
-                      <h3
-                        data-plasmic-name={"offersTitle"}
-                        data-plasmic-override={overrides.offersTitle}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.h3,
-                          projectcss.__wab_text,
-                          sty.offersTitle
-                        )}
-                      >
-                        {"Ofertas"}
-                      </h3>
-                    </div>
-                  ) : null}
-                  {(
-                    (() => {
-                      try {
-                        return $queries.batches.data;
-                      } catch (e) {
-                        if (e instanceof TypeError) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })() ?? []
-                  ).map((batch, currentIndex) => (
-                    <CardItem
-                      data-plasmic-name={"batchItem"}
-                      data-plasmic-override={overrides.batchItem}
-                      className={classNames("__wab_instance", sty.batchItem)}
-                      description={batch.description}
-                      highlight={batch.sold + " pedidos"}
-                      key={currentIndex}
-                      title={batch.title}
-                    />
-                  ))}
-                </p.Stack>
-                {(hasVariant(globalVariants, "screen", "sm") ? true : true) ? (
-                  <div
-                    data-plasmic-name={"orders"}
-                    data-plasmic-override={overrides.orders}
-                    className={classNames(projectcss.all, sty.orders)}
+                  <p.Stack
+                    as={"div"}
+                    data-plasmic-name={"offers"}
+                    data-plasmic-override={overrides.offers}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.offers)}
                   >
                     {true ? (
                       <div
-                        data-plasmic-name={"ordersHeading"}
-                        data-plasmic-override={overrides.ordersHeading}
+                        data-plasmic-name={"offersHeading"}
+                        data-plasmic-override={overrides.offersHeading}
                         className={classNames(
                           projectcss.all,
-                          sty.ordersHeading
+                          sty.offersHeading
                         )}
                       >
                         <h3
-                          data-plasmic-name={"ordersTitle"}
-                          data-plasmic-override={overrides.ordersTitle}
+                          data-plasmic-name={"offersTitle"}
+                          data-plasmic-override={overrides.offersTitle}
                           className={classNames(
                             projectcss.all,
                             projectcss.h3,
                             projectcss.__wab_text,
-                            sty.ordersTitle
+                            sty.offersTitle
                           )}
                         >
-                          {"Pedidos"}
+                          {"Ofertas"}
                         </h3>
                       </div>
                     ) : null}
+                    {(
+                      (() => {
+                        try {
+                          return $queries.batches.data;
+                        } catch (e) {
+                          if (e instanceof TypeError) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })() ?? []
+                    ).map((batch, currentIndex) => (
+                      <CardItem
+                        data-plasmic-name={"batchItem"}
+                        data-plasmic-override={overrides.batchItem}
+                        className={classNames("__wab_instance", sty.batchItem)}
+                        description={batch.description}
+                        highlight={batch.sold + " pedidos"}
+                        key={currentIndex}
+                        title={batch.title}
+                      />
+                    ))}
+                  </p.Stack>
+                  {(
+                    hasVariant(globalVariants, "screen", "sm") ? true : true
+                  ) ? (
+                    <div
+                      data-plasmic-name={"orders"}
+                      data-plasmic-override={overrides.orders}
+                      className={classNames(projectcss.all, sty.orders)}
+                    >
+                      {true ? (
+                        <div
+                          data-plasmic-name={"ordersHeading"}
+                          data-plasmic-override={overrides.ordersHeading}
+                          className={classNames(
+                            projectcss.all,
+                            sty.ordersHeading
+                          )}
+                        >
+                          <h3
+                            data-plasmic-name={"ordersTitle"}
+                            data-plasmic-override={overrides.ordersTitle}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h3,
+                              projectcss.__wab_text,
+                              sty.ordersTitle
+                            )}
+                          >
+                            {"Pedidos"}
+                          </h3>
+                        </div>
+                      ) : null}
+                      {(() => {
+                        const child$Props = {
+                          canSelectRows: "none" as const,
+                          className: classNames("__wab_instance", sty.table),
+                          data: (() => {
+                            try {
+                              return $queries.orders;
+                            } catch (e) {
+                              if (e instanceof TypeError) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          fields: (() => {
+                            const __composite = [
+                              {
+                                key: "__airtable_id",
+                                fieldId: "__airtable_id",
+                                isHidden: true
+                              },
+                              {
+                                key: "id",
+                                fieldId: "id",
+                                title: "id",
+                                dataType: "number",
+                                isHidden: true
+                              },
+                              {
+                                key: "datetime",
+                                fieldId: "datetime",
+                                title: "Data",
+                                dataType: "string",
+                                expr: null
+                              },
+                              {
+                                key: "user",
+                                fieldId: "user",
+                                title: "Comprador",
+                                dataType: "string",
+                                expr: null
+                              },
+                              {
+                                key: "status",
+                                fieldId: "status",
+                                title: "Status"
+                              },
+                              {
+                                key: "total",
+                                fieldId: "total",
+                                expr: null,
+                                title: "Total"
+                              },
+                              {
+                                key: "receipt",
+                                fieldId: "receipt",
+                                isHidden: false,
+                                title: "Recibo"
+                              },
+                              {
+                                key: "batch",
+                                fieldId: "batch",
+                                isHidden: true
+                              },
+                              {
+                                key: "tickets",
+                                fieldId: "tickets",
+                                isHidden: true
+                              },
+                              {
+                                key: "passengers",
+                                fieldId: "passengers",
+                                isHidden: true
+                              },
+                              { key: "tour", fieldId: "tour", isHidden: true },
+                              {
+                                key: "record_id",
+                                fieldId: "record_id",
+                                isHidden: true
+                              },
+                              {
+                                key: "buyer_name",
+                                fieldId: "buyer_name",
+                                isHidden: true
+                              },
+                              {
+                                key: "formatted_datetime",
+                                fieldId: "formatted_datetime",
+                                isHidden: true
+                              }
+                            ];
+                            __composite["2"]["expr"] = currentItem => {
+                              return currentItem.formatted_datetime;
+                            };
+                            __composite["3"]["expr"] = currentItem => {
+                              return currentItem.buyer_name;
+                            };
+                            __composite["5"]["expr"] = currentItem => {
+                              return "R$ " + currentItem.total;
+                            };
+                            return __composite;
+                          })(),
+
+                          hideColumnPicker: hasVariant(
+                            globalVariants,
+                            "screen",
+                            "sm"
+                          )
+                            ? true
+                            : false,
+                          hideDensity: hasVariant(
+                            globalVariants,
+                            "screen",
+                            "sm"
+                          )
+                            ? true
+                            : undefined,
+                          hideExports: hasVariant(
+                            globalVariants,
+                            "screen",
+                            "sm"
+                          )
+                            ? true
+                            : undefined,
+                          hideSearch: hasVariant(globalVariants, "screen", "sm")
+                            ? true
+                            : undefined,
+                          onRowSelectionChanged: async (...eventArgs) => {
+                            p.generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "selectedRowKey",
+                              ["table", "selectedRowKey"],
+                              RichTable_Helpers
+                            ).apply(null, eventArgs);
+                            p.generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "selectedRow",
+                              ["table", "selectedRow"],
+                              RichTable_Helpers
+                            ).apply(null, eventArgs);
+                            p.generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "selectedRows",
+                              ["table", "selectedRows"],
+                              RichTable_Helpers
+                            ).apply(null, eventArgs);
+                          },
+                          pagination: true,
+                          selectedRowKey: p.generateStateValueProp($state, [
+                            "table",
+                            "selectedRowKey"
+                          ])
+                        };
+                        p.initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "selectedRowKey",
+                              plasmicStateName: "table.selectedRowKey"
+                            },
+                            {
+                              name: "selectedRow",
+                              plasmicStateName: "table.selectedRow"
+                            },
+                            {
+                              name: "selectedRows",
+                              plasmicStateName: "table.selectedRows"
+                            }
+                          ],
+                          [],
+                          RichTable_Helpers ?? {},
+                          child$Props
+                        );
+
+                        return (
+                          <RichTable
+                            data-plasmic-name={"table"}
+                            data-plasmic-override={overrides.table}
+                            {...child$Props}
+                          />
+                        );
+                      })()}
+                    </div>
+                  ) : null}
+                </p.Stack>
+              ) : null}
+              {(() => {
+                try {
+                  return $state.activeView == "trips";
+                } catch (e) {
+                  if (e instanceof TypeError) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  data-plasmic-name={"tripsView"}
+                  data-plasmic-override={overrides.tripsView}
+                  className={classNames(projectcss.all, sty.tripsView)}
+                >
+                  <p.Stack
+                    as={"div"}
+                    data-plasmic-name={"route"}
+                    data-plasmic-override={overrides.route}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.route)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__rHPi7)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__zewVm
+                        )}
+                      >
+                        {"Rota"}
+                      </div>
+                    </div>
+                  </p.Stack>
+                  <div
+                    data-plasmic-name={"passengers"}
+                    data-plasmic-override={overrides.passengers}
+                    className={classNames(projectcss.all, sty.passengers)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__y7U9O)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__enEud
+                        )}
+                      >
+                        {"Passageiros"}
+                      </div>
+                    </div>
                     {(() => {
                       const child$Props = {
-                        canSelectRows: "none" as const,
-                        className: classNames("__wab_instance", sty.table),
-                        data: (() => {
-                          try {
-                            return $queries.orders;
-                          } catch (e) {
-                            if (e instanceof TypeError) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })(),
-                        fields: (() => {
-                          const __composite = [
-                            {
-                              key: "__airtable_id",
-                              fieldId: "__airtable_id",
-                              isHidden: true
-                            },
-                            {
-                              key: "id",
-                              fieldId: "id",
-                              title: "id",
-                              dataType: "number",
-                              isHidden: true
-                            },
-                            {
-                              key: "datetime",
-                              fieldId: "datetime",
-                              title: "Data",
-                              dataType: "string",
-                              expr: null
-                            },
-                            {
-                              key: "user",
-                              fieldId: "user",
-                              title: "Comprador",
-                              dataType: "string",
-                              expr: null
-                            },
-                            {
-                              key: "status",
-                              fieldId: "status",
-                              title: "Status"
-                            },
-                            {
-                              key: "total",
-                              fieldId: "total",
-                              expr: null,
-                              title: "Total"
-                            },
-                            {
-                              key: "receipt",
-                              fieldId: "receipt",
-                              isHidden: false,
-                              title: "Recibo"
-                            },
-                            { key: "batch", fieldId: "batch", isHidden: true },
-                            {
-                              key: "tickets",
-                              fieldId: "tickets",
-                              isHidden: true
-                            },
-                            {
-                              key: "passengers",
-                              fieldId: "passengers",
-                              isHidden: true
-                            },
-                            { key: "tour", fieldId: "tour", isHidden: true },
-                            {
-                              key: "record_id",
-                              fieldId: "record_id",
-                              isHidden: true
-                            },
-                            {
-                              key: "buyer_name",
-                              fieldId: "buyer_name",
-                              isHidden: true
-                            },
-                            {
-                              key: "formatted_datetime",
-                              fieldId: "formatted_datetime",
-                              isHidden: true
-                            }
-                          ];
-                          __composite["2"]["expr"] = currentItem => {
-                            return currentItem.formatted_datetime;
-                          };
-                          __composite["3"]["expr"] = currentItem => {
-                            return currentItem.buyer_name;
-                          };
-                          __composite["5"]["expr"] = currentItem => {
-                            return "R$ " + currentItem.total;
-                          };
-                          return __composite;
-                        })(),
-
-                        hideColumnPicker: hasVariant(
-                          globalVariants,
-                          "screen",
-                          "sm"
-                        )
-                          ? true
-                          : false,
-                        hideDensity: hasVariant(globalVariants, "screen", "sm")
-                          ? true
-                          : undefined,
-                        hideExports: hasVariant(globalVariants, "screen", "sm")
-                          ? true
-                          : undefined,
-                        hideSearch: hasVariant(globalVariants, "screen", "sm")
-                          ? true
-                          : undefined,
+                        className: classNames("__wab_instance", sty.table2),
                         onRowSelectionChanged: async (...eventArgs) => {
                           p.generateStateOnChangePropForCodeComponents(
                             $state,
                             "selectedRowKey",
-                            ["table", "selectedRowKey"],
+                            ["table2", "selectedRowKey"],
                             RichTable_Helpers
                           ).apply(null, eventArgs);
                           p.generateStateOnChangePropForCodeComponents(
                             $state,
                             "selectedRow",
-                            ["table", "selectedRow"],
+                            ["table2", "selectedRow"],
                             RichTable_Helpers
                           ).apply(null, eventArgs);
                           p.generateStateOnChangePropForCodeComponents(
                             $state,
                             "selectedRows",
-                            ["table", "selectedRows"],
+                            ["table2", "selectedRows"],
                             RichTable_Helpers
                           ).apply(null, eventArgs);
                         },
-                        pagination: true,
                         selectedRowKey: p.generateStateValueProp($state, [
-                          "table",
+                          "table2",
                           "selectedRowKey"
                         ])
                       };
@@ -1020,15 +1148,15 @@ function PlasmicExcursao__RenderFunc(props: {
                         [
                           {
                             name: "selectedRowKey",
-                            plasmicStateName: "table.selectedRowKey"
+                            plasmicStateName: "table2.selectedRowKey"
                           },
                           {
                             name: "selectedRow",
-                            plasmicStateName: "table.selectedRow"
+                            plasmicStateName: "table2.selectedRow"
                           },
                           {
                             name: "selectedRows",
-                            plasmicStateName: "table.selectedRows"
+                            plasmicStateName: "table2.selectedRows"
                           }
                         ],
                         [],
@@ -1038,122 +1166,17 @@ function PlasmicExcursao__RenderFunc(props: {
 
                       return (
                         <RichTable
-                          data-plasmic-name={"table"}
-                          data-plasmic-override={overrides.table}
+                          data-plasmic-name={"table2"}
+                          data-plasmic-override={overrides.table2}
                           {...child$Props}
                         />
                       );
                     })()}
                   </div>
-                ) : null}
-              </p.Stack>
-            ) : null}
-            {true ? (
-              <div
-                data-plasmic-name={"tripsView"}
-                data-plasmic-override={overrides.tripsView}
-                className={classNames(projectcss.all, sty.tripsView)}
-              >
-                <p.Stack
-                  as={"div"}
-                  data-plasmic-name={"route"}
-                  data-plasmic-override={overrides.route}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.route)}
-                >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__rHPi7)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__zewVm
-                      )}
-                    >
-                      {"Rota"}
-                    </div>
-                  </div>
-                </p.Stack>
-                <div
-                  data-plasmic-name={"passengers"}
-                  data-plasmic-override={overrides.passengers}
-                  className={classNames(projectcss.all, sty.passengers)}
-                >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__y7U9O)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__enEud
-                      )}
-                    >
-                      {"Passageiros"}
-                    </div>
-                  </div>
-                  {(() => {
-                    const child$Props = {
-                      className: classNames("__wab_instance", sty.table2),
-                      onRowSelectionChanged: async (...eventArgs) => {
-                        p.generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "selectedRowKey",
-                          ["table2", "selectedRowKey"],
-                          RichTable_Helpers
-                        ).apply(null, eventArgs);
-                        p.generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "selectedRow",
-                          ["table2", "selectedRow"],
-                          RichTable_Helpers
-                        ).apply(null, eventArgs);
-                        p.generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "selectedRows",
-                          ["table2", "selectedRows"],
-                          RichTable_Helpers
-                        ).apply(null, eventArgs);
-                      },
-                      selectedRowKey: p.generateStateValueProp($state, [
-                        "table2",
-                        "selectedRowKey"
-                      ])
-                    };
-                    p.initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "selectedRowKey",
-                          plasmicStateName: "table2.selectedRowKey"
-                        },
-                        {
-                          name: "selectedRow",
-                          plasmicStateName: "table2.selectedRow"
-                        },
-                        {
-                          name: "selectedRows",
-                          plasmicStateName: "table2.selectedRows"
-                        }
-                      ],
-                      [],
-                      RichTable_Helpers ?? {},
-                      child$Props
-                    );
-
-                    return (
-                      <RichTable
-                        data-plasmic-name={"table2"}
-                        data-plasmic-override={overrides.table2}
-                        {...child$Props}
-                      />
-                    );
-                  })()}
                 </div>
-              </div>
-            ) : null}
-          </section>
+              ) : null}
+            </section>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
