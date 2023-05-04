@@ -300,6 +300,19 @@
           "cssFilePath": "plasmic/ovni/PlasmicCard.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "ACP4S2Wy0N8",
+          "name": "Excursao2",
+          "type": "managed",
+          "projectId": "s4A8zbVV2YneJHZ4PPAS7d",
+          "renderModuleFilePath": "plasmic/ovni/PlasmicExcursao2.tsx",
+          "importSpec": {
+            "modulePath": "../pages/2.tsx"
+          },
+          "cssFilePath": "plasmic/ovni/PlasmicExcursao2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
         }
       ],
       "icons": [
