@@ -1,0 +1,61 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  background: var(--token-u4-1U5i2CHHR);
+  box-shadow: 0px 4px 8px 0px var(--token-4u9Kq42G97yE);
+  padding-left: 8px;
+  padding-right: 8px;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  border-radius: 8px;
+}
+.freeBox {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.title {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: var(--token-T8AeDz5hzyXq);
+  font-weight: 600;
+  color: var(--token-Wlrsjx_VDKHr);
+  min-width: 0;
+}
+.description {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-LQT3YkZtgPzC);
+  font-size: var(--token-6EQMkyJH1hGn);
+  padding-left: 0px;
+  font-weight: 600;
+  min-width: 0;
+}
+.sold {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: var(--token-kovYF8KMD_gi);
+  text-align: right;
+  color: var(--token-xbiBUJcrr3V8);
+  font-weight: 500;
+  padding-right: 8px;
+  min-width: 0;
+}
