@@ -48,7 +48,6 @@ import { AntdMenuItem } from "@plasmicpkgs/antd5/skinny/registerMenu"; // plasmi
 import OfferItem from "../../OfferItem"; // plasmic-import: 3Xy4dZ9QFi/component
 import { RichTable } from "@plasmicpkgs/plasmic-rich-components"; // plasmic-import: k4RvFQUTZKCU/codeComponent
 import { tableHelpers as RichTable_Helpers } from "@plasmicpkgs/plasmic-rich-components"; // plasmic-import: k4RvFQUTZKCU/codeComponentHelper
-import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal"; // plasmic-import: xx93QbkHH5i/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: eqBx5aJsUvSBW/codeComponent
 
 import { useScreenVariants as useScreenVariantsn3GbfBwefkZu8 } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: n3gbfBWEFKZu8/globalVariant
@@ -70,9 +69,15 @@ export type PlasmicExcursao__VariantsArgs = {};
 type VariantPropType = keyof PlasmicExcursao__VariantsArgs;
 export const PlasmicExcursao__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicExcursao__ArgsType = {};
+export type PlasmicExcursao__ArgsType = {
+  activeView?: string;
+  onActiveViewChange?: (val: string) => void;
+};
 type ArgPropType = keyof PlasmicExcursao__ArgsType;
-export const PlasmicExcursao__ArgProps = new Array<ArgPropType>();
+export const PlasmicExcursao__ArgProps = new Array<ArgPropType>(
+  "activeView",
+  "onActiveViewChange"
+);
 
 export type PlasmicExcursao__OverridesType = {
   root?: p.Flex<"div">;
@@ -88,21 +93,25 @@ export type PlasmicExcursao__OverridesType = {
   soldTickets?: p.Flex<typeof Info>;
   emptySeats?: p.Flex<typeof Info>;
   menu?: p.Flex<typeof AntdMenu>;
-  sales?: p.Flex<typeof AntdMenuItem>;
-  text?: p.Flex<"div">;
-  menuItem?: p.Flex<typeof AntdMenuItem>;
+  salesTab?: p.Flex<typeof AntdMenuItem>;
+  tabButton1?: p.Flex<"div">;
+  tripsTab?: p.Flex<typeof AntdMenuItem>;
+  tabButton2?: p.Flex<"div">;
   viagens?: p.Flex<"div">;
   body?: p.Flex<"section">;
   salesView?: p.Flex<"div">;
-  offersComponent?: p.Flex<"div">;
+  offers?: p.Flex<"div">;
   offersHeading?: p.Flex<"div">;
   offersTitle?: p.Flex<"h3">;
   offerItem?: p.Flex<typeof OfferItem>;
-  ordersComponent?: p.Flex<"div">;
+  orders?: p.Flex<"div">;
   ordersHeading?: p.Flex<"div">;
   ordersTitle?: p.Flex<"h3">;
   table?: p.Flex<typeof RichTable>;
-  modal?: p.Flex<typeof AntdModal>;
+  tripsView?: p.Flex<"div">;
+  route?: p.Flex<"div">;
+  passengers?: p.Flex<"div">;
+  table2?: p.Flex<typeof RichTable>;
 };
 
 export interface DefaultExcursaoProps {}
@@ -163,9 +172,29 @@ function PlasmicExcursao__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "modal.open",
+        path: "activeView",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "activeView",
+        onChangeProp: "onActiveViewChange"
+      },
+      {
+        path: "table2.selectedRowKey",
         type: "private",
-        variableType: "boolean",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "table2.selectedRow",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "table2.selectedRows",
+        type: "private",
+        variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
@@ -475,16 +504,95 @@ function PlasmicExcursao__RenderFunc(props: {
             className={classNames("__wab_instance", sty.menu)}
           >
             <AntdMenuItem
-              data-plasmic-name={"sales"}
-              data-plasmic-override={overrides.sales}
-              className={classNames("__wab_instance", sty.sales)}
+              data-plasmic-name={"salesTab"}
+              data-plasmic-override={overrides.salesTab}
+              className={classNames("__wab_instance", sty.salesTab)}
               key={"menuItemKey1" as const}
             >
               {true ? (
                 <p.Stack
                   as={"div"}
+                  data-plasmic-name={"tabButton1"}
+                  data-plasmic-override={overrides.tabButton1}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__xH3Py)}
+                  className={classNames(projectcss.all, sty.tabButton1)}
+                  onClick={async event => {
+                    const $steps = {};
+                    $steps["updateActiveView"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: __wrapUserFunction(
+                              {
+                                type: "InteractionArgLoc",
+                                actionName: "updateVariable",
+                                interactionUuid: "0ZVUvmWA-",
+                                componentUuid: "AHVBnXmex-jZ",
+                                argName: "variable"
+                              },
+                              () => ({
+                                objRoot: $state,
+                                variablePath: ["activeView"]
+                              })
+                            ),
+                            operation: __wrapUserFunction(
+                              {
+                                type: "InteractionArgLoc",
+                                actionName: "updateVariable",
+                                interactionUuid: "0ZVUvmWA-",
+                                componentUuid: "AHVBnXmex-jZ",
+                                argName: "operation"
+                              },
+                              () => 0
+                            ),
+                            value: __wrapUserFunction(
+                              {
+                                type: "InteractionArgLoc",
+                                actionName: "updateVariable",
+                                interactionUuid: "0ZVUvmWA-",
+                                componentUuid: "AHVBnXmex-jZ",
+                                argName: "value"
+                              },
+                              () => "sales"
+                            )
+                          };
+                          return __wrapUserFunction(
+                            {
+                              type: "InteractionLoc",
+                              actionName: "updateVariable",
+                              interactionUuid: "0ZVUvmWA-",
+                              componentUuid: "AHVBnXmex-jZ"
+                            },
+                            () =>
+                              (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                const { objRoot, variablePath } = variable;
+
+                                p.set(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]),
+                            actionArgs
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      typeof $steps["updateActiveView"] === "object" &&
+                      typeof $steps["updateActiveView"].then === "function"
+                    ) {
+                      $steps["updateActiveView"] = await __wrapUserPromise(
+                        {
+                          type: "InteractionLoc",
+                          actionName: "updateVariable",
+                          interactionUuid: "0ZVUvmWA-",
+                          componentUuid: "AHVBnXmex-jZ"
+                        },
+                        $steps["updateActiveView"]
+                      );
+                    }
+                  }}
                 >
                   <PaymentsFill0Wght400Grad0Opsz48SvgIcon
                     className={classNames(projectcss.all, sty.svg__mlLUo)}
@@ -492,12 +600,10 @@ function PlasmicExcursao__RenderFunc(props: {
                   />
 
                   <div
-                    data-plasmic-name={"text"}
-                    data-plasmic-override={overrides.text}
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text
+                      sty.text__aU4Ik
                     )}
                   >
                     {"Vendas"}
@@ -506,15 +612,89 @@ function PlasmicExcursao__RenderFunc(props: {
               ) : null}
             </AntdMenuItem>
             <AntdMenuItem
-              data-plasmic-name={"menuItem"}
-              data-plasmic-override={overrides.menuItem}
-              className={classNames("__wab_instance", sty.menuItem)}
+              data-plasmic-name={"tripsTab"}
+              data-plasmic-override={overrides.tripsTab}
+              className={classNames("__wab_instance", sty.tripsTab)}
               key={"menuItemKey2" as const}
             >
               <p.Stack
                 as={"div"}
+                data-plasmic-name={"tabButton2"}
+                data-plasmic-override={overrides.tabButton2}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__b6RIe)}
+                className={classNames(projectcss.all, sty.tabButton2)}
+                onClick={async event => {
+                  const $steps = {};
+                  $steps["updateActiveView"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: __wrapUserFunction(
+                            {
+                              type: "InteractionArgLoc",
+                              actionName: "updateVariable",
+                              interactionUuid: "aukxhkI5C",
+                              componentUuid: "AHVBnXmex-jZ",
+                              argName: "variable"
+                            },
+                            () => ({
+                              objRoot: $state,
+                              variablePath: ["activeView"]
+                            })
+                          ),
+                          operation: __wrapUserFunction(
+                            {
+                              type: "InteractionArgLoc",
+                              actionName: "updateVariable",
+                              interactionUuid: "aukxhkI5C",
+                              componentUuid: "AHVBnXmex-jZ",
+                              argName: "operation"
+                            },
+                            () => 0
+                          ),
+                          value: __wrapUserFunction(
+                            {
+                              type: "InteractionArgLoc",
+                              actionName: "updateVariable",
+                              interactionUuid: "aukxhkI5C",
+                              componentUuid: "AHVBnXmex-jZ",
+                              argName: "value"
+                            },
+                            () => "trips"
+                          )
+                        };
+                        return __wrapUserFunction(
+                          {
+                            type: "InteractionLoc",
+                            actionName: "updateVariable",
+                            interactionUuid: "aukxhkI5C",
+                            componentUuid: "AHVBnXmex-jZ"
+                          },
+                          () =>
+                            (({ variable, value, startIndex, deleteCount }) => {
+                              const { objRoot, variablePath } = variable;
+
+                              p.set(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]),
+                          actionArgs
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    typeof $steps["updateActiveView"] === "object" &&
+                    typeof $steps["updateActiveView"].then === "function"
+                  ) {
+                    $steps["updateActiveView"] = await __wrapUserPromise(
+                      {
+                        type: "InteractionLoc",
+                        actionName: "updateVariable",
+                        interactionUuid: "aukxhkI5C",
+                        componentUuid: "AHVBnXmex-jZ"
+                      },
+                      $steps["updateActiveView"]
+                    );
+                  }
+                }}
               >
                 <ModeOfTravelsvgIcon
                   className={classNames(projectcss.all, sty.svg__qwsmA)}
@@ -540,7 +720,16 @@ function PlasmicExcursao__RenderFunc(props: {
             data-plasmic-override={overrides.body}
             className={classNames(projectcss.all, sty.body)}
           >
-            {true ? (
+            {(() => {
+              try {
+                return $state.activeView == "sales";
+              } catch (e) {
+                if (e instanceof TypeError) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
               <p.Stack
                 as={"div"}
                 data-plasmic-name={"salesView"}
@@ -550,10 +739,10 @@ function PlasmicExcursao__RenderFunc(props: {
               >
                 <p.Stack
                   as={"div"}
-                  data-plasmic-name={"offersComponent"}
-                  data-plasmic-override={overrides.offersComponent}
+                  data-plasmic-name={"offers"}
+                  data-plasmic-override={overrides.offers}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.offersComponent)}
+                  className={classNames(projectcss.all, sty.offers)}
                 >
                   {true ? (
                     <div
@@ -622,9 +811,9 @@ function PlasmicExcursao__RenderFunc(props: {
                 </p.Stack>
                 {(hasVariant(globalVariants, "screen", "sm") ? true : true) ? (
                   <div
-                    data-plasmic-name={"ordersComponent"}
-                    data-plasmic-override={overrides.ordersComponent}
-                    className={classNames(projectcss.all, sty.ordersComponent)}
+                    data-plasmic-name={"orders"}
+                    data-plasmic-override={overrides.orders}
+                    className={classNames(projectcss.all, sty.orders)}
                   >
                     {true ? (
                       <div
@@ -812,41 +1001,112 @@ function PlasmicExcursao__RenderFunc(props: {
                 ) : null}
               </p.Stack>
             ) : null}
-          </section>
-          {true ? (
-            <AntdModal
-              data-plasmic-name={"modal"}
-              data-plasmic-override={overrides.modal}
-              className={classNames("__wab_instance", sty.modal)}
-              defaultStylesClassName={classNames(
-                projectcss.root_reset,
-                projectcss.plasmic_default_styles,
-                projectcss.plasmic_mixins,
-                projectcss.plasmic_tokens,
-                plasmic_antd_5_hostless_css.plasmic_tokens,
-                plasmic_plasmic_rich_components_css.plasmic_tokens
-              )}
-              modalScopeClassName={sty["modal__modal"]}
-              onOpenChange={p.generateStateOnChangeProp($state, [
-                "modal",
-                "open"
-              ])}
-              open={p.generateStateValueProp($state, ["modal", "open"])}
-              title={"Modal title"}
-            >
-              <div className={classNames(projectcss.all, sty.freeBox__giRqa)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__sZhfQ
-                  )}
+            {true ? (
+              <div
+                data-plasmic-name={"tripsView"}
+                data-plasmic-override={overrides.tripsView}
+                className={classNames(projectcss.all, sty.tripsView)}
+              >
+                <p.Stack
+                  as={"div"}
+                  data-plasmic-name={"route"}
+                  data-plasmic-override={overrides.route}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.route)}
                 >
-                  {"Modal content"}
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__rHPi7)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__zewVm
+                      )}
+                    >
+                      {"Rota"}
+                    </div>
+                  </div>
+                </p.Stack>
+                <div
+                  data-plasmic-name={"passengers"}
+                  data-plasmic-override={overrides.passengers}
+                  className={classNames(projectcss.all, sty.passengers)}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__y7U9O)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__enEud
+                      )}
+                    >
+                      {"Passageiros"}
+                    </div>
+                  </div>
+                  {(() => {
+                    const child$Props = {
+                      className: classNames("__wab_instance", sty.table2),
+                      onRowSelectionChanged: async (...eventArgs) => {
+                        p.generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "selectedRowKey",
+                          ["table2", "selectedRowKey"],
+                          RichTable_Helpers
+                        ).apply(null, eventArgs);
+                        p.generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "selectedRow",
+                          ["table2", "selectedRow"],
+                          RichTable_Helpers
+                        ).apply(null, eventArgs);
+                        p.generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "selectedRows",
+                          ["table2", "selectedRows"],
+                          RichTable_Helpers
+                        ).apply(null, eventArgs);
+                      },
+                      selectedRowKey: p.generateStateValueProp($state, [
+                        "table2",
+                        "selectedRowKey"
+                      ])
+                    };
+                    p.initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "selectedRowKey",
+                          plasmicStateName: "table2.selectedRowKey"
+                        },
+                        {
+                          name: "selectedRow",
+                          plasmicStateName: "table2.selectedRow"
+                        },
+                        {
+                          name: "selectedRows",
+                          plasmicStateName: "table2.selectedRows"
+                        }
+                      ],
+                      [],
+                      RichTable_Helpers ?? {},
+                      child$Props
+                    );
+
+                    return (
+                      <RichTable
+                        data-plasmic-name={"table2"}
+                        data-plasmic-override={overrides.table2}
+                        {...child$Props}
+                      />
+                    );
+                  })()}
                 </div>
               </div>
-            </AntdModal>
-          ) : null}
+            ) : null}
+          </section>
         </div>
       </div>
     </React.Fragment>
@@ -868,21 +1128,25 @@ const PlasmicDescendants = {
     "soldTickets",
     "emptySeats",
     "menu",
-    "sales",
-    "text",
-    "menuItem",
+    "salesTab",
+    "tabButton1",
+    "tripsTab",
+    "tabButton2",
     "viagens",
     "body",
     "salesView",
-    "offersComponent",
+    "offers",
     "offersHeading",
     "offersTitle",
     "offerItem",
-    "ordersComponent",
+    "orders",
     "ordersHeading",
     "ordersTitle",
     "table",
-    "modal"
+    "tripsView",
+    "route",
+    "passengers",
+    "table2"
   ],
   tumbnail: ["tumbnail"],
   heading: [
@@ -906,48 +1170,51 @@ const PlasmicDescendants = {
   info: ["info", "soldTickets", "emptySeats"],
   soldTickets: ["soldTickets"],
   emptySeats: ["emptySeats"],
-  menu: ["menu", "sales", "text", "menuItem", "viagens"],
-  sales: ["sales", "text"],
-  text: ["text"],
-  menuItem: ["menuItem", "viagens"],
+  menu: ["menu", "salesTab", "tabButton1", "tripsTab", "tabButton2", "viagens"],
+  salesTab: ["salesTab", "tabButton1"],
+  tabButton1: ["tabButton1"],
+  tripsTab: ["tripsTab", "tabButton2", "viagens"],
+  tabButton2: ["tabButton2", "viagens"],
   viagens: ["viagens"],
   body: [
     "body",
     "salesView",
-    "offersComponent",
+    "offers",
     "offersHeading",
     "offersTitle",
     "offerItem",
-    "ordersComponent",
+    "orders",
     "ordersHeading",
     "ordersTitle",
-    "table"
+    "table",
+    "tripsView",
+    "route",
+    "passengers",
+    "table2"
   ],
   salesView: [
     "salesView",
-    "offersComponent",
+    "offers",
     "offersHeading",
     "offersTitle",
     "offerItem",
-    "ordersComponent",
+    "orders",
     "ordersHeading",
     "ordersTitle",
     "table"
   ],
-  offersComponent: [
-    "offersComponent",
-    "offersHeading",
-    "offersTitle",
-    "offerItem"
-  ],
+  offers: ["offers", "offersHeading", "offersTitle", "offerItem"],
   offersHeading: ["offersHeading", "offersTitle"],
   offersTitle: ["offersTitle"],
   offerItem: ["offerItem"],
-  ordersComponent: ["ordersComponent", "ordersHeading", "ordersTitle", "table"],
+  orders: ["orders", "ordersHeading", "ordersTitle", "table"],
   ordersHeading: ["ordersHeading", "ordersTitle"],
   ordersTitle: ["ordersTitle"],
   table: ["table"],
-  modal: ["modal"]
+  tripsView: ["tripsView", "route", "passengers", "table2"],
+  route: ["route"],
+  passengers: ["passengers", "table2"],
+  table2: ["table2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -966,21 +1233,25 @@ type NodeDefaultElementType = {
   soldTickets: typeof Info;
   emptySeats: typeof Info;
   menu: typeof AntdMenu;
-  sales: typeof AntdMenuItem;
-  text: "div";
-  menuItem: typeof AntdMenuItem;
+  salesTab: typeof AntdMenuItem;
+  tabButton1: "div";
+  tripsTab: typeof AntdMenuItem;
+  tabButton2: "div";
   viagens: "div";
   body: "section";
   salesView: "div";
-  offersComponent: "div";
+  offers: "div";
   offersHeading: "div";
   offersTitle: "h3";
   offerItem: typeof OfferItem;
-  ordersComponent: "div";
+  orders: "div";
   ordersHeading: "div";
   ordersTitle: "h3";
   table: typeof RichTable;
-  modal: typeof AntdModal;
+  tripsView: "div";
+  route: "div";
+  passengers: "div";
+  table2: typeof RichTable;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1055,21 +1326,25 @@ export const PlasmicExcursao = Object.assign(
     soldTickets: makeNodeComponent("soldTickets"),
     emptySeats: makeNodeComponent("emptySeats"),
     menu: makeNodeComponent("menu"),
-    sales: makeNodeComponent("sales"),
-    text: makeNodeComponent("text"),
-    menuItem: makeNodeComponent("menuItem"),
+    salesTab: makeNodeComponent("salesTab"),
+    tabButton1: makeNodeComponent("tabButton1"),
+    tripsTab: makeNodeComponent("tripsTab"),
+    tabButton2: makeNodeComponent("tabButton2"),
     viagens: makeNodeComponent("viagens"),
     body: makeNodeComponent("body"),
     salesView: makeNodeComponent("salesView"),
-    offersComponent: makeNodeComponent("offersComponent"),
+    offers: makeNodeComponent("offers"),
     offersHeading: makeNodeComponent("offersHeading"),
     offersTitle: makeNodeComponent("offersTitle"),
     offerItem: makeNodeComponent("offerItem"),
-    ordersComponent: makeNodeComponent("ordersComponent"),
+    orders: makeNodeComponent("orders"),
     ordersHeading: makeNodeComponent("ordersHeading"),
     ordersTitle: makeNodeComponent("ordersTitle"),
     table: makeNodeComponent("table"),
-    modal: makeNodeComponent("modal"),
+    tripsView: makeNodeComponent("tripsView"),
+    route: makeNodeComponent("route"),
+    passengers: makeNodeComponent("passengers"),
+    table2: makeNodeComponent("table2"),
 
     // Metadata about props expected for PlasmicExcursao
     internalVariantProps: PlasmicExcursao__VariantProps,
