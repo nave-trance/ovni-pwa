@@ -93,10 +93,14 @@ export type PlasmicExcursao__OverridesType = {
   right?: p.Flex<"div">;
   info1?: p.Flex<"div">;
   soldTickets?: p.Flex<typeof IconLabel>;
+  label?: p.Flex<"div">;
   emptySeats?: p.Flex<typeof IconLabel>;
+  label2?: p.Flex<"div">;
   info2?: p.Flex<"div">;
   revenue?: p.Flex<typeof IconLabel>;
-  iconLabel?: p.Flex<typeof IconLabel>;
+  label3?: p.Flex<"div">;
+  averagePrice?: p.Flex<typeof IconLabel>;
+  label4?: p.Flex<"div">;
   menu?: p.Flex<typeof AntdMenu>;
   salesTab?: p.Flex<typeof AntdMenuItem>;
   tabButton1?: p.Flex<"div">;
@@ -112,11 +116,11 @@ export type PlasmicExcursao__OverridesType = {
   orders?: p.Flex<"div">;
   ordersHeading?: p.Flex<"div">;
   ordersTitle?: p.Flex<"h3">;
-  table?: p.Flex<typeof RichTable>;
+  ordersTable?: p.Flex<typeof RichTable>;
   tripsView?: p.Flex<"div">;
   route?: p.Flex<"div">;
   passengers?: p.Flex<"div">;
-  table2?: p.Flex<typeof RichTable>;
+  ticketsTable?: p.Flex<typeof RichTable>;
 };
 
 export interface DefaultExcursaoProps {}
@@ -159,19 +163,19 @@ function PlasmicExcursao__RenderFunc(props: {
   const stateSpecs = React.useMemo(
     () => [
       {
-        path: "table.selectedRowKey",
+        path: "ordersTable.selectedRowKey",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "table.selectedRow",
+        path: "ordersTable.selectedRow",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "table.selectedRows",
+        path: "ordersTable.selectedRows",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -185,19 +189,19 @@ function PlasmicExcursao__RenderFunc(props: {
         onChangeProp: "onActiveViewChange"
       },
       {
-        path: "table2.selectedRowKey",
+        path: "ticketsTable.selectedRowKey",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "table2.selectedRow",
+        path: "ticketsTable.selectedRow",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "table2.selectedRows",
+        path: "ticketsTable.selectedRows",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -226,7 +230,19 @@ function PlasmicExcursao__RenderFunc(props: {
           })()
         ]
       },
-      cacheKey: "plasmic.$.KuPiQuxZx.$.",
+      cacheKey:
+        "plasmic.$." +
+        (() => {
+          try {
+            return "tour_detail";
+          } catch (e) {
+            if (e instanceof TypeError) {
+              return "";
+            }
+            throw e;
+          }
+        })() +
+        ".$.KuPiQuxZx.$.",
       invalidatedKeys: null,
       roleId: null
     }),
@@ -252,7 +268,19 @@ function PlasmicExcursao__RenderFunc(props: {
           })()
         ]
       },
-      cacheKey: "plasmic.$.bPvUNNHv5.$.",
+      cacheKey:
+        "plasmic.$." +
+        (() => {
+          try {
+            return "tour_detail";
+          } catch (e) {
+            if (e instanceof TypeError) {
+              return "";
+            }
+            throw e;
+          }
+        })() +
+        ".$.bPvUNNHv5.$.",
       invalidatedKeys: null,
       roleId: null
     }),
@@ -278,7 +306,19 @@ function PlasmicExcursao__RenderFunc(props: {
           })()
         ]
       },
-      cacheKey: "plasmic.$.RLXJHFcm-.$.",
+      cacheKey:
+        "plasmic.$." +
+        (() => {
+          try {
+            return "tour_detail";
+          } catch (e) {
+            if (e instanceof TypeError) {
+              return "";
+            }
+            throw e;
+          }
+        })() +
+        ".$.RLXJHFcm-.$.",
       invalidatedKeys: null,
       roleId: null
     }),
@@ -330,34 +370,35 @@ function PlasmicExcursao__RenderFunc(props: {
             sty.root
           )}
         >
-          <p.PlasmicImg
-            data-plasmic-name={"tumbnail"}
-            data-plasmic-override={overrides.tumbnail}
-            alt={""}
-            className={classNames(sty.tumbnail)}
-            displayHeight={
-              hasVariant(globalVariants, "screen", "sm")
-                ? ("300px" as const)
-                : ("600px" as const)
-            }
-            displayMaxHeight={"none" as const}
-            displayMaxWidth={"100%" as const}
-            displayMinHeight={"0" as const}
-            displayMinWidth={"0" as const}
-            displayWidth={"100%" as const}
-            loading={"lazy" as const}
-            src={(() => {
-              try {
-                return $queries.tour.data.tumbnail[0].url;
-              } catch (e) {
-                if (e instanceof TypeError) {
-                  return undefined;
-                }
-                throw e;
+          {true ? (
+            <p.PlasmicImg
+              data-plasmic-name={"tumbnail"}
+              data-plasmic-override={overrides.tumbnail}
+              alt={""}
+              className={classNames(sty.tumbnail)}
+              displayHeight={
+                hasVariant(globalVariants, "screen", "sm")
+                  ? ("300px" as const)
+                  : ("600px" as const)
               }
-            })()}
-          />
-
+              displayMaxHeight={"none" as const}
+              displayMaxWidth={"100%" as const}
+              displayMinHeight={"0" as const}
+              displayMinWidth={"0" as const}
+              displayWidth={"100%" as const}
+              loading={"lazy" as const}
+              src={(() => {
+                try {
+                  return $queries.tour.data.tumbnail[0].url;
+                } catch (e) {
+                  if (e instanceof TypeError) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+            />
+          ) : null}
           {(hasVariant(globalVariants, "screen", "sm") ? true : true) ? (
             <p.Stack
               as={"div"}
@@ -478,11 +519,30 @@ function PlasmicExcursao__RenderFunc(props: {
                                 role={"img"}
                               />
                             }
-                            label={
-                              $queries.tour.data.occupancy + " passageiros"
-                            }
-                          />
-
+                          >
+                            <div
+                              data-plasmic-name={"label"}
+                              data-plasmic-override={overrides.label}
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.label
+                              )}
+                            >
+                              {(() => {
+                                try {
+                                  return (
+                                    $queries.tour.data.occupancy + " passagens"
+                                  );
+                                } catch (e) {
+                                  if (e instanceof TypeError) {
+                                    return "Label";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </div>
+                          </IconLabel>
                           <IconLabel
                             data-plasmic-name={"emptySeats"}
                             data-plasmic-override={overrides.emptySeats}
@@ -499,8 +559,30 @@ function PlasmicExcursao__RenderFunc(props: {
                                 role={"img"}
                               />
                             }
-                            label={$queries.tour.data.avaiability + " vagas"}
-                          />
+                          >
+                            <div
+                              data-plasmic-name={"label2"}
+                              data-plasmic-override={overrides.label2}
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.label2
+                              )}
+                            >
+                              {(() => {
+                                try {
+                                  return (
+                                    $queries.tour.data.avaiability + " vagas"
+                                  );
+                                } catch (e) {
+                                  if (e instanceof TypeError) {
+                                    return "Label";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </div>
+                          </IconLabel>
                         </p.Stack>
                       ) : null}
                       {true ? (
@@ -527,15 +609,34 @@ function PlasmicExcursao__RenderFunc(props: {
                                 role={"img"}
                               />
                             }
-                            label={"R$ " + $queries.tour.data.revenue}
-                          />
-
+                          >
+                            <div
+                              data-plasmic-name={"label3"}
+                              data-plasmic-override={overrides.label3}
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.label3
+                              )}
+                            >
+                              {(() => {
+                                try {
+                                  return "R$ " + $queries.tour.data.revenue;
+                                } catch (e) {
+                                  if (e instanceof TypeError) {
+                                    return "Label";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </div>
+                          </IconLabel>
                           <IconLabel
-                            data-plasmic-name={"iconLabel"}
-                            data-plasmic-override={overrides.iconLabel}
+                            data-plasmic-name={"averagePrice"}
+                            data-plasmic-override={overrides.averagePrice}
                             className={classNames(
                               "__wab_instance",
-                              sty.iconLabel
+                              sty.averagePrice
                             )}
                             icon={
                               <CalculatesvgIcon
@@ -546,8 +647,30 @@ function PlasmicExcursao__RenderFunc(props: {
                                 role={"img"}
                               />
                             }
-                            label={"R$ " + $queries.tour.data.average_price}
-                          />
+                          >
+                            <div
+                              data-plasmic-name={"label4"}
+                              data-plasmic-override={overrides.label4}
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.label4
+                              )}
+                            >
+                              {(() => {
+                                try {
+                                  return (
+                                    "R$ " + $queries.tour.data.average_price
+                                  );
+                                } catch (e) {
+                                  if (e instanceof TypeError) {
+                                    return "Label";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </div>
+                          </IconLabel>
                         </p.Stack>
                       ) : null}
                     </div>
@@ -774,16 +897,7 @@ function PlasmicExcursao__RenderFunc(props: {
               data-plasmic-override={overrides.body}
               className={classNames(projectcss.all, sty.body)}
             >
-              {(() => {
-                try {
-                  return $state.activeView == "sales";
-                } catch (e) {
-                  if (e instanceof TypeError) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
+              {true ? (
                 <p.Stack
                   as={"div"}
                   data-plasmic-name={"salesView"}
@@ -878,7 +992,10 @@ function PlasmicExcursao__RenderFunc(props: {
                       {(() => {
                         const child$Props = {
                           canSelectRows: "none" as const,
-                          className: classNames("__wab_instance", sty.table),
+                          className: classNames(
+                            "__wab_instance",
+                            sty.ordersTable
+                          ),
                           data: (() => {
                             try {
                               return $queries.orders;
@@ -1006,25 +1123,25 @@ function PlasmicExcursao__RenderFunc(props: {
                             p.generateStateOnChangePropForCodeComponents(
                               $state,
                               "selectedRowKey",
-                              ["table", "selectedRowKey"],
+                              ["ordersTable", "selectedRowKey"],
                               RichTable_Helpers
                             ).apply(null, eventArgs);
                             p.generateStateOnChangePropForCodeComponents(
                               $state,
                               "selectedRow",
-                              ["table", "selectedRow"],
+                              ["ordersTable", "selectedRow"],
                               RichTable_Helpers
                             ).apply(null, eventArgs);
                             p.generateStateOnChangePropForCodeComponents(
                               $state,
                               "selectedRows",
-                              ["table", "selectedRows"],
+                              ["ordersTable", "selectedRows"],
                               RichTable_Helpers
                             ).apply(null, eventArgs);
                           },
                           pagination: true,
                           selectedRowKey: p.generateStateValueProp($state, [
-                            "table",
+                            "ordersTable",
                             "selectedRowKey"
                           ])
                         };
@@ -1033,15 +1150,15 @@ function PlasmicExcursao__RenderFunc(props: {
                           [
                             {
                               name: "selectedRowKey",
-                              plasmicStateName: "table.selectedRowKey"
+                              plasmicStateName: "ordersTable.selectedRowKey"
                             },
                             {
                               name: "selectedRow",
-                              plasmicStateName: "table.selectedRow"
+                              plasmicStateName: "ordersTable.selectedRow"
                             },
                             {
                               name: "selectedRows",
-                              plasmicStateName: "table.selectedRows"
+                              plasmicStateName: "ordersTable.selectedRows"
                             }
                           ],
                           [],
@@ -1051,8 +1168,8 @@ function PlasmicExcursao__RenderFunc(props: {
 
                         return (
                           <RichTable
-                            data-plasmic-name={"table"}
-                            data-plasmic-override={overrides.table}
+                            data-plasmic-name={"ordersTable"}
+                            data-plasmic-override={overrides.ordersTable}
                             {...child$Props}
                           />
                         );
@@ -1117,29 +1234,32 @@ function PlasmicExcursao__RenderFunc(props: {
                     </div>
                     {(() => {
                       const child$Props = {
-                        className: classNames("__wab_instance", sty.table2),
+                        className: classNames(
+                          "__wab_instance",
+                          sty.ticketsTable
+                        ),
                         onRowSelectionChanged: async (...eventArgs) => {
                           p.generateStateOnChangePropForCodeComponents(
                             $state,
                             "selectedRowKey",
-                            ["table2", "selectedRowKey"],
+                            ["ticketsTable", "selectedRowKey"],
                             RichTable_Helpers
                           ).apply(null, eventArgs);
                           p.generateStateOnChangePropForCodeComponents(
                             $state,
                             "selectedRow",
-                            ["table2", "selectedRow"],
+                            ["ticketsTable", "selectedRow"],
                             RichTable_Helpers
                           ).apply(null, eventArgs);
                           p.generateStateOnChangePropForCodeComponents(
                             $state,
                             "selectedRows",
-                            ["table2", "selectedRows"],
+                            ["ticketsTable", "selectedRows"],
                             RichTable_Helpers
                           ).apply(null, eventArgs);
                         },
                         selectedRowKey: p.generateStateValueProp($state, [
-                          "table2",
+                          "ticketsTable",
                           "selectedRowKey"
                         ])
                       };
@@ -1148,15 +1268,15 @@ function PlasmicExcursao__RenderFunc(props: {
                         [
                           {
                             name: "selectedRowKey",
-                            plasmicStateName: "table2.selectedRowKey"
+                            plasmicStateName: "ticketsTable.selectedRowKey"
                           },
                           {
                             name: "selectedRow",
-                            plasmicStateName: "table2.selectedRow"
+                            plasmicStateName: "ticketsTable.selectedRow"
                           },
                           {
                             name: "selectedRows",
-                            plasmicStateName: "table2.selectedRows"
+                            plasmicStateName: "ticketsTable.selectedRows"
                           }
                         ],
                         [],
@@ -1166,8 +1286,8 @@ function PlasmicExcursao__RenderFunc(props: {
 
                       return (
                         <RichTable
-                          data-plasmic-name={"table2"}
-                          data-plasmic-override={overrides.table2}
+                          data-plasmic-name={"ticketsTable"}
+                          data-plasmic-override={overrides.ticketsTable}
                           {...child$Props}
                         />
                       );
@@ -1196,10 +1316,14 @@ const PlasmicDescendants = {
     "right",
     "info1",
     "soldTickets",
+    "label",
     "emptySeats",
+    "label2",
     "info2",
     "revenue",
-    "iconLabel",
+    "label3",
+    "averagePrice",
+    "label4",
     "menu",
     "salesTab",
     "tabButton1",
@@ -1215,11 +1339,11 @@ const PlasmicDescendants = {
     "orders",
     "ordersHeading",
     "ordersTitle",
-    "table",
+    "ordersTable",
     "tripsView",
     "route",
     "passengers",
-    "table2"
+    "ticketsTable"
   ],
   tumbnail: ["tumbnail"],
   header: [
@@ -1232,10 +1356,14 @@ const PlasmicDescendants = {
     "right",
     "info1",
     "soldTickets",
+    "label",
     "emptySeats",
+    "label2",
     "info2",
     "revenue",
-    "iconLabel"
+    "label3",
+    "averagePrice",
+    "label4"
   ],
   left: ["left", "caption", "title", "subtitle", "date"],
   caption: ["caption", "title", "subtitle"],
@@ -1246,17 +1374,25 @@ const PlasmicDescendants = {
     "right",
     "info1",
     "soldTickets",
+    "label",
     "emptySeats",
+    "label2",
     "info2",
     "revenue",
-    "iconLabel"
+    "label3",
+    "averagePrice",
+    "label4"
   ],
-  info1: ["info1", "soldTickets", "emptySeats"],
-  soldTickets: ["soldTickets"],
-  emptySeats: ["emptySeats"],
-  info2: ["info2", "revenue", "iconLabel"],
-  revenue: ["revenue"],
-  iconLabel: ["iconLabel"],
+  info1: ["info1", "soldTickets", "label", "emptySeats", "label2"],
+  soldTickets: ["soldTickets", "label"],
+  label: ["label"],
+  emptySeats: ["emptySeats", "label2"],
+  label2: ["label2"],
+  info2: ["info2", "revenue", "label3", "averagePrice", "label4"],
+  revenue: ["revenue", "label3"],
+  label3: ["label3"],
+  averagePrice: ["averagePrice", "label4"],
+  label4: ["label4"],
   menu: ["menu", "salesTab", "tabButton1", "tripsTab", "tabButton2", "viagens"],
   salesTab: ["salesTab", "tabButton1"],
   tabButton1: ["tabButton1"],
@@ -1273,11 +1409,11 @@ const PlasmicDescendants = {
     "orders",
     "ordersHeading",
     "ordersTitle",
-    "table",
+    "ordersTable",
     "tripsView",
     "route",
     "passengers",
-    "table2"
+    "ticketsTable"
   ],
   salesView: [
     "salesView",
@@ -1288,20 +1424,20 @@ const PlasmicDescendants = {
     "orders",
     "ordersHeading",
     "ordersTitle",
-    "table"
+    "ordersTable"
   ],
   offers: ["offers", "offersHeading", "offersTitle", "batchItem"],
   offersHeading: ["offersHeading", "offersTitle"],
   offersTitle: ["offersTitle"],
   batchItem: ["batchItem"],
-  orders: ["orders", "ordersHeading", "ordersTitle", "table"],
+  orders: ["orders", "ordersHeading", "ordersTitle", "ordersTable"],
   ordersHeading: ["ordersHeading", "ordersTitle"],
   ordersTitle: ["ordersTitle"],
-  table: ["table"],
-  tripsView: ["tripsView", "route", "passengers", "table2"],
+  ordersTable: ["ordersTable"],
+  tripsView: ["tripsView", "route", "passengers", "ticketsTable"],
   route: ["route"],
-  passengers: ["passengers", "table2"],
-  table2: ["table2"]
+  passengers: ["passengers", "ticketsTable"],
+  ticketsTable: ["ticketsTable"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1318,10 +1454,14 @@ type NodeDefaultElementType = {
   right: "div";
   info1: "div";
   soldTickets: typeof IconLabel;
+  label: "div";
   emptySeats: typeof IconLabel;
+  label2: "div";
   info2: "div";
   revenue: typeof IconLabel;
-  iconLabel: typeof IconLabel;
+  label3: "div";
+  averagePrice: typeof IconLabel;
+  label4: "div";
   menu: typeof AntdMenu;
   salesTab: typeof AntdMenuItem;
   tabButton1: "div";
@@ -1337,11 +1477,11 @@ type NodeDefaultElementType = {
   orders: "div";
   ordersHeading: "div";
   ordersTitle: "h3";
-  table: typeof RichTable;
+  ordersTable: typeof RichTable;
   tripsView: "div";
   route: "div";
   passengers: "div";
-  table2: typeof RichTable;
+  ticketsTable: typeof RichTable;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1414,10 +1554,14 @@ export const PlasmicExcursao = Object.assign(
     right: makeNodeComponent("right"),
     info1: makeNodeComponent("info1"),
     soldTickets: makeNodeComponent("soldTickets"),
+    label: makeNodeComponent("label"),
     emptySeats: makeNodeComponent("emptySeats"),
+    label2: makeNodeComponent("label2"),
     info2: makeNodeComponent("info2"),
     revenue: makeNodeComponent("revenue"),
-    iconLabel: makeNodeComponent("iconLabel"),
+    label3: makeNodeComponent("label3"),
+    averagePrice: makeNodeComponent("averagePrice"),
+    label4: makeNodeComponent("label4"),
     menu: makeNodeComponent("menu"),
     salesTab: makeNodeComponent("salesTab"),
     tabButton1: makeNodeComponent("tabButton1"),
@@ -1433,11 +1577,11 @@ export const PlasmicExcursao = Object.assign(
     orders: makeNodeComponent("orders"),
     ordersHeading: makeNodeComponent("ordersHeading"),
     ordersTitle: makeNodeComponent("ordersTitle"),
-    table: makeNodeComponent("table"),
+    ordersTable: makeNodeComponent("ordersTable"),
     tripsView: makeNodeComponent("tripsView"),
     route: makeNodeComponent("route"),
     passengers: makeNodeComponent("passengers"),
-    table2: makeNodeComponent("table2"),
+    ticketsTable: makeNodeComponent("ticketsTable"),
 
     // Metadata about props expected for PlasmicExcursao
     internalVariantProps: PlasmicExcursao__VariantProps,

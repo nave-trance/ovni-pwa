@@ -11,7 +11,7 @@
 .root > :global(.__wab_flex-container) {
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-end;
+  align-items: center;
   margin-left: calc(0px - var(--token-c9dfRwU7m));
   width: calc(100% + var(--token-c9dfRwU7m));
   --plsmc-col-gap: var(--token-c9dfRwU7m);
@@ -30,7 +30,7 @@
   max-width: 100%;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-end;
+  align-items: center;
   justify-self: flex-start;
   padding: 0px 8px;
 }
@@ -49,17 +49,9 @@
   flex-shrink: 0;
   min-height: 0;
 }
-.text {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  font-size: var(--token-kovYF8KMD_gi);
-  font-weight: 500;
+.slotTargetChildren {
   font-family: "Inter", sans-serif;
-  left: auto;
-  top: auto;
-  align-self: center;
+  font-size: var(--token-RNWHVIMwco7F);
+  font-weight: 500;
   text-align: left;
-  min-width: 0;
 }

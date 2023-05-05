@@ -53,22 +53,21 @@ export const PlasmicIconLabel__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicIconLabel__ArgsType = {
   icon?: React.ReactNode;
-  label?: string;
+  children?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicIconLabel__ArgsType;
 export const PlasmicIconLabel__ArgProps = new Array<ArgPropType>(
   "icon",
-  "label"
+  "children"
 );
 
 export type PlasmicIconLabel__OverridesType = {
   root?: p.Flex<"div">;
-  text?: p.Flex<"div">;
 };
 
 export interface DefaultIconLabelProps {
   icon?: React.ReactNode;
-  label?: string;
+  children?: React.ReactNode;
   className?: string;
 }
 
@@ -139,41 +138,34 @@ function PlasmicIconLabel__RenderFunc(props: {
           value: args.icon,
           className: classNames(sty.slotTargetIcon)
         })}
-        <div
-          data-plasmic-name={"text"}
-          data-plasmic-override={overrides.text}
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text
-          )}
-        >
-          {(() => {
-            try {
-              return $props.label;
-            } catch (e) {
-              if (e instanceof TypeError) {
-                return "Enter some text";
-              }
-              throw e;
-            }
-          })()}
-        </div>
+        {p.renderPlasmicSlot({
+          defaultContents: (
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___7BKiu
+              )}
+            >
+              {"Label"}
+            </div>
+          ),
+          value: args.children,
+          className: classNames(sty.slotTargetChildren)
+        })}
       </p.Stack>
     ) : null
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "text"],
-  text: ["text"]
+  root: ["root"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -236,7 +228,6 @@ export const PlasmicIconLabel = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicIconLabel
     internalVariantProps: PlasmicIconLabel__VariantProps,

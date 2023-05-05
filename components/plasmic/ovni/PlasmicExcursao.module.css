@@ -32,6 +32,7 @@
   height: 600px;
   grid-column-start: 1;
   grid-column-end: -1;
+  display: inline-block !important;
 }
 .tumbnail > picture > img {
   object-fit: cover;
@@ -243,6 +244,8 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .right {
+    align-items: center;
+    justify-content: center;
     display: flex;
   }
 }
@@ -371,7 +374,7 @@
   height: 100%;
   min-height: 0;
 }
-.iconLabel:global(.__wab_instance) {
+.averagePrice:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
@@ -749,7 +752,7 @@
   min-width: 0;
   padding: 0px;
 }
-.table:global(.__wab_instance) {
+.ordersTable:global(.__wab_instance) {
   width: 100%;
   max-height: 100%;
   max-width: 100%;
@@ -759,7 +762,7 @@
   padding: 0px 16px 16px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .table:global(.__wab_instance) {
+  .ordersTable:global(.__wab_instance) {
     height: auto;
     padding: 0px;
   }
@@ -868,7 +871,7 @@
   min-width: 0;
   padding: 0px;
 }
-.table2:global(.__wab_instance) {
+.ticketsTable:global(.__wab_instance) {
   width: 100%;
   max-height: 100%;
   max-width: 100%;
