@@ -109,9 +109,9 @@ export type PlasmicExcursao__OverridesType = {
   viagens?: p.Flex<"div">;
   body?: p.Flex<"section">;
   salesView?: p.Flex<"div">;
-  offers?: p.Flex<"div">;
-  offersHeading?: p.Flex<"div">;
-  offersTitle?: p.Flex<"h3">;
+  batches?: p.Flex<"div">;
+  batchesHeading?: p.Flex<"div">;
+  batchesTitle?: p.Flex<"h3">;
   batchItem?: p.Flex<typeof CardItem>;
   orders?: p.Flex<"div">;
   ordersHeading?: p.Flex<"div">;
@@ -163,24 +163,6 @@ function PlasmicExcursao__RenderFunc(props: {
   const stateSpecs = React.useMemo(
     () => [
       {
-        path: "ordersTable.selectedRowKey",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "ordersTable.selectedRow",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "ordersTable.selectedRows",
-        type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "activeView",
         type: "writable",
         variableType: "text",
@@ -205,6 +187,24 @@ function PlasmicExcursao__RenderFunc(props: {
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "ordersTable.selectedRowKey",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "ordersTable.selectedRow",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "ordersTable.selectedRows",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx]
@@ -214,10 +214,10 @@ function PlasmicExcursao__RenderFunc(props: {
   useDependencyAwareQuery({
     name: "tour",
     getDataOp: () => ({
-      sourceId: "3D2qpwXrTDzp5gVoPy8prT",
-      opId: "0345af56-e087-48f3-85c3-9c20e4d92155",
+      sourceId: "bZTAeS7zkVosmEWwykBedp",
+      opId: "1a02d92e-a612-44f0-8f11-92c44ab10952",
       userArgs: {
-        id: [
+        params: [
           (() => {
             try {
               return $ctx.query.tour_id;
@@ -250,53 +250,15 @@ function PlasmicExcursao__RenderFunc(props: {
     setDollarQueries
   });
   useDependencyAwareQuery({
-    name: "batches",
-    getDataOp: () => ({
-      sourceId: "3D2qpwXrTDzp5gVoPy8prT",
-      opId: "2eb34469-94f3-4441-ac28-82cb932fd172",
-      userArgs: {
-        filters: [
-          (() => {
-            try {
-              return $queries.tour.data.title;
-            } catch (e) {
-              if (e instanceof TypeError) {
-                return null;
-              }
-              throw e;
-            }
-          })()
-        ]
-      },
-      cacheKey:
-        "plasmic.$." +
-        (() => {
-          try {
-            return "tour_detail";
-          } catch (e) {
-            if (e instanceof TypeError) {
-              return "";
-            }
-            throw e;
-          }
-        })() +
-        ".$.bPvUNNHv5.$.",
-      invalidatedKeys: null,
-      roleId: null
-    }),
-    $queries,
-    setDollarQueries
-  });
-  useDependencyAwareQuery({
     name: "orders",
     getDataOp: () => ({
       sourceId: "3D2qpwXrTDzp5gVoPy8prT",
-      opId: "17d4d04c-88ef-4a3f-a38d-be4f526ad087",
+      opId: "95a3832c-ee66-4324-ae10-9ab67bb0b4d0",
       userArgs: {
         filters: [
           (() => {
             try {
-              return $queries.tour.data.title;
+              return $queries.tour.data.response.title;
             } catch (e) {
               if (e instanceof TypeError) {
                 return null;
@@ -306,19 +268,7 @@ function PlasmicExcursao__RenderFunc(props: {
           })()
         ]
       },
-      cacheKey:
-        "plasmic.$." +
-        (() => {
-          try {
-            return "tour_detail";
-          } catch (e) {
-            if (e instanceof TypeError) {
-              return "";
-            }
-            throw e;
-          }
-        })() +
-        ".$.RLXJHFcm-.$.",
+      cacheKey: "plasmic.$.IvRvzteX7.$.",
       invalidatedKeys: null,
       roleId: null
     }),
@@ -389,7 +339,7 @@ function PlasmicExcursao__RenderFunc(props: {
               loading={"lazy" as const}
               src={(() => {
                 try {
-                  return $queries.tour.data.tumbnail[0].url;
+                  return $queries.tour.data.response.tumbnail[0].url;
                 } catch (e) {
                   if (e instanceof TypeError) {
                     return undefined;
@@ -432,7 +382,7 @@ function PlasmicExcursao__RenderFunc(props: {
                     >
                       {(() => {
                         try {
-                          return $queries.tour.data.title;
+                          return $queries.tour.data.response.title;
                         } catch (e) {
                           if (e instanceof TypeError) {
                             return "Enter some text";
@@ -453,7 +403,7 @@ function PlasmicExcursao__RenderFunc(props: {
                     >
                       {(() => {
                         try {
-                          return $queries.tour.data.subtitle[0];
+                          return $queries.tour.data.response.subtitle;
                         } catch (e) {
                           if (e instanceof TypeError) {
                             return "Enter some text";
@@ -474,7 +424,7 @@ function PlasmicExcursao__RenderFunc(props: {
                   >
                     {(() => {
                       try {
-                        return $queries.tour.data.datetime[0];
+                        return $queries.tour.data.response.datetime[0];
                       } catch (e) {
                         if (e instanceof TypeError) {
                           return "Enter some text";
@@ -534,7 +484,8 @@ function PlasmicExcursao__RenderFunc(props: {
                               {(() => {
                                 try {
                                   return (
-                                    $queries.tour.data.occupancy + " passagens"
+                                    $queries.tour.data.response.occupancy +
+                                    " passagens"
                                   );
                                 } catch (e) {
                                   if (e instanceof TypeError) {
@@ -574,7 +525,8 @@ function PlasmicExcursao__RenderFunc(props: {
                               {(() => {
                                 try {
                                   return (
-                                    $queries.tour.data.avaiability + " vagas"
+                                    $queries.tour.data.response.avaiability +
+                                    " vagas"
                                   );
                                 } catch (e) {
                                   if (e instanceof TypeError) {
@@ -623,7 +575,9 @@ function PlasmicExcursao__RenderFunc(props: {
                             >
                               {(() => {
                                 try {
-                                  return "R$ " + $queries.tour.data.revenue;
+                                  return (
+                                    "R$ " + $queries.tour.data.response.revenue
+                                  );
                                 } catch (e) {
                                   if (e instanceof TypeError) {
                                     return "Label";
@@ -662,7 +616,8 @@ function PlasmicExcursao__RenderFunc(props: {
                               {(() => {
                                 try {
                                   return (
-                                    "R$ " + $queries.tour.data.average_price
+                                    "R$ " +
+                                    $queries.tour.data.response.average_price
                                   );
                                 } catch (e) {
                                   if (e instanceof TypeError) {
@@ -909,28 +864,28 @@ function PlasmicExcursao__RenderFunc(props: {
                 >
                   <p.Stack
                     as={"div"}
-                    data-plasmic-name={"offers"}
-                    data-plasmic-override={overrides.offers}
+                    data-plasmic-name={"batches"}
+                    data-plasmic-override={overrides.batches}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.offers)}
+                    className={classNames(projectcss.all, sty.batches)}
                   >
                     {true ? (
                       <div
-                        data-plasmic-name={"offersHeading"}
-                        data-plasmic-override={overrides.offersHeading}
+                        data-plasmic-name={"batchesHeading"}
+                        data-plasmic-override={overrides.batchesHeading}
                         className={classNames(
                           projectcss.all,
-                          sty.offersHeading
+                          sty.batchesHeading
                         )}
                       >
                         <h3
-                          data-plasmic-name={"offersTitle"}
-                          data-plasmic-override={overrides.offersTitle}
+                          data-plasmic-name={"batchesTitle"}
+                          data-plasmic-override={overrides.batchesTitle}
                           className={classNames(
                             projectcss.all,
                             projectcss.h3,
                             projectcss.__wab_text,
-                            sty.offersTitle
+                            sty.batchesTitle
                           )}
                         >
                           {"Ofertas"}
@@ -940,7 +895,7 @@ function PlasmicExcursao__RenderFunc(props: {
                     {(
                       (() => {
                         try {
-                          return $queries.batches.data;
+                          return $queries.tour.data.response.batches;
                         } catch (e) {
                           if (e instanceof TypeError) {
                             return [];
@@ -993,14 +948,13 @@ function PlasmicExcursao__RenderFunc(props: {
                       ) : null}
                       {(() => {
                         const child$Props = {
-                          canSelectRows: "none" as const,
                           className: classNames(
                             "__wab_instance",
                             sty.ordersTable
                           ),
                           data: (() => {
                             try {
-                              return $queries.orders;
+                              return $queries.tour.data.response.orders;
                             } catch (e) {
                               if (e instanceof TypeError) {
                                 return undefined;
@@ -1011,29 +965,36 @@ function PlasmicExcursao__RenderFunc(props: {
                           fields: (() => {
                             const __composite = [
                               {
-                                key: "__airtable_id",
-                                fieldId: "__airtable_id",
+                                key: "tickets",
+                                fieldId: "tickets",
                                 isHidden: true
                               },
                               {
-                                key: "id",
-                                fieldId: "id",
-                                title: "id",
-                                dataType: "number",
+                                key: "batch",
+                                fieldId: "batch",
                                 isHidden: true
                               },
+                              { key: "id", fieldId: "id", isHidden: true },
+                              { key: "user", fieldId: "user", isHidden: true },
                               {
-                                key: "datetime",
-                                fieldId: "datetime",
-                                title: "Data",
-                                dataType: "string",
-                                expr: null
+                                key: "formatted_datetime",
+                                fieldId: "formatted_datetime",
+                                title: "Data"
                               },
                               {
-                                key: "user",
-                                fieldId: "user",
-                                title: "Comprador",
-                                dataType: "string",
+                                key: "buyer_name",
+                                fieldId: "buyer_name",
+                                title: "Comprador"
+                              },
+                              {
+                                key: "ticket_count",
+                                fieldId: "ticket_count",
+                                title: "Passagens"
+                              },
+                              {
+                                key: "total",
+                                fieldId: "total",
+                                title: "Total",
                                 expr: null
                               },
                               {
@@ -1041,86 +1002,29 @@ function PlasmicExcursao__RenderFunc(props: {
                                 fieldId: "status",
                                 title: "Status"
                               },
-                              {
-                                key: "total",
-                                fieldId: "total",
-                                expr: null,
-                                title: "Total"
-                              },
-                              {
-                                key: "receipt",
-                                fieldId: "receipt",
-                                isHidden: false,
-                                title: "Recibo"
-                              },
-                              {
-                                key: "batch",
-                                fieldId: "batch",
-                                isHidden: true
-                              },
-                              {
-                                key: "tickets",
-                                fieldId: "tickets",
-                                isHidden: true
-                              },
+                              { key: "tour", fieldId: "tour", isHidden: true },
                               {
                                 key: "passengers",
                                 fieldId: "passengers",
                                 isHidden: true
                               },
-                              { key: "tour", fieldId: "tour", isHidden: true },
                               {
                                 key: "record_id",
                                 fieldId: "record_id",
                                 isHidden: true
                               },
                               {
-                                key: "buyer_name",
-                                fieldId: "buyer_name",
-                                isHidden: true
-                              },
-                              {
-                                key: "formatted_datetime",
-                                fieldId: "formatted_datetime",
+                                key: "datetime",
+                                fieldId: "datetime",
                                 isHidden: true
                               }
                             ];
-                            __composite["2"]["expr"] = currentItem => {
-                              return currentItem.formatted_datetime;
-                            };
-                            __composite["3"]["expr"] = currentItem => {
-                              return currentItem.buyer_name;
-                            };
-                            __composite["5"]["expr"] = currentItem => {
+                            __composite["7"]["expr"] = currentItem => {
                               return "R$ " + currentItem.total;
                             };
                             return __composite;
                           })(),
 
-                          hideColumnPicker: hasVariant(
-                            globalVariants,
-                            "screen",
-                            "sm"
-                          )
-                            ? true
-                            : false,
-                          hideDensity: hasVariant(
-                            globalVariants,
-                            "screen",
-                            "sm"
-                          )
-                            ? true
-                            : undefined,
-                          hideExports: hasVariant(
-                            globalVariants,
-                            "screen",
-                            "sm"
-                          )
-                            ? true
-                            : undefined,
-                          hideSearch: hasVariant(globalVariants, "screen", "sm")
-                            ? true
-                            : undefined,
                           onRowSelectionChanged: async (...eventArgs) => {
                             p.generateStateOnChangePropForCodeComponents(
                               $state,
@@ -1141,7 +1045,6 @@ function PlasmicExcursao__RenderFunc(props: {
                               RichTable_Helpers
                             ).apply(null, eventArgs);
                           },
-                          pagination: true,
                           selectedRowKey: p.generateStateValueProp($state, [
                             "ordersTable",
                             "selectedRowKey"
@@ -1180,16 +1083,7 @@ function PlasmicExcursao__RenderFunc(props: {
                   ) : null}
                 </p.Stack>
               ) : null}
-              {(() => {
-                try {
-                  return $state.activeView == "trips";
-                } catch (e) {
-                  if (e instanceof TypeError) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
+              {true ? (
                 <div
                   data-plasmic-name={"tripsView"}
                   data-plasmic-override={overrides.tripsView}
@@ -1334,9 +1228,9 @@ const PlasmicDescendants = {
     "viagens",
     "body",
     "salesView",
-    "offers",
-    "offersHeading",
-    "offersTitle",
+    "batches",
+    "batchesHeading",
+    "batchesTitle",
     "batchItem",
     "orders",
     "ordersHeading",
@@ -1404,9 +1298,9 @@ const PlasmicDescendants = {
   body: [
     "body",
     "salesView",
-    "offers",
-    "offersHeading",
-    "offersTitle",
+    "batches",
+    "batchesHeading",
+    "batchesTitle",
     "batchItem",
     "orders",
     "ordersHeading",
@@ -1419,18 +1313,18 @@ const PlasmicDescendants = {
   ],
   salesView: [
     "salesView",
-    "offers",
-    "offersHeading",
-    "offersTitle",
+    "batches",
+    "batchesHeading",
+    "batchesTitle",
     "batchItem",
     "orders",
     "ordersHeading",
     "ordersTitle",
     "ordersTable"
   ],
-  offers: ["offers", "offersHeading", "offersTitle", "batchItem"],
-  offersHeading: ["offersHeading", "offersTitle"],
-  offersTitle: ["offersTitle"],
+  batches: ["batches", "batchesHeading", "batchesTitle", "batchItem"],
+  batchesHeading: ["batchesHeading", "batchesTitle"],
+  batchesTitle: ["batchesTitle"],
   batchItem: ["batchItem"],
   orders: ["orders", "ordersHeading", "ordersTitle", "ordersTable"],
   ordersHeading: ["ordersHeading", "ordersTitle"],
@@ -1472,9 +1366,9 @@ type NodeDefaultElementType = {
   viagens: "div";
   body: "section";
   salesView: "div";
-  offers: "div";
-  offersHeading: "div";
-  offersTitle: "h3";
+  batches: "div";
+  batchesHeading: "div";
+  batchesTitle: "h3";
   batchItem: typeof CardItem;
   orders: "div";
   ordersHeading: "div";
@@ -1572,9 +1466,9 @@ export const PlasmicExcursao = Object.assign(
     viagens: makeNodeComponent("viagens"),
     body: makeNodeComponent("body"),
     salesView: makeNodeComponent("salesView"),
-    offers: makeNodeComponent("offers"),
-    offersHeading: makeNodeComponent("offersHeading"),
-    offersTitle: makeNodeComponent("offersTitle"),
+    batches: makeNodeComponent("batches"),
+    batchesHeading: makeNodeComponent("batchesHeading"),
+    batchesTitle: makeNodeComponent("batchesTitle"),
     batchItem: makeNodeComponent("batchItem"),
     orders: makeNodeComponent("orders"),
     ordersHeading: makeNodeComponent("ordersHeading"),

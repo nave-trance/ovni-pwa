@@ -675,7 +675,7 @@
     grid-column-end: -1;
   }
 }
-.offers {
+.batches {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -685,24 +685,24 @@
   min-width: 20%;
   padding: 8px 8px 8px 40px;
 }
-.offers > :global(.__wab_flex-container) {
+.batches > :global(.__wab_flex-container) {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   margin-top: calc(0px - var(--token-IGX7LhJueKhL));
   height: calc(100% + var(--token-IGX7LhJueKhL));
 }
-.offers > :global(.__wab_flex-container) > *,
-.offers > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.offers > :global(.__wab_flex-container) > picture > img,
-.offers
+.batches > :global(.__wab_flex-container) > *,
+.batches > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.batches > :global(.__wab_flex-container) > picture > img,
+.batches
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
   > img {
   margin-top: var(--token-IGX7LhJueKhL);
 }
-.offers {
+.batches {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -715,7 +715,7 @@
   padding: 8px 8px 8px 40px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .offers {
+  .batches {
     width: 100%;
     padding-left: 24px;
     padding-right: 24px;
@@ -723,19 +723,19 @@
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .offers > :global(.__wab_flex-container) {
+  .batches > :global(.__wab_flex-container) {
     min-width: 0;
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .offers {
+  .batches {
     width: 100%;
     padding-left: 24px;
     padding-right: 24px;
     min-width: 0;
   }
 }
-.offersHeading {
+.batchesHeading {
   display: flex;
   position: relative;
   flex-direction: row;
@@ -747,7 +747,7 @@
   min-width: 0;
   padding: 8px 16px;
 }
-.offersTitle {
+.batchesTitle {
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -809,15 +809,7 @@
   object-fit: cover;
   position: relative;
   min-width: 0;
-  padding: 0px 16px 16px;
-  border-width: 0px;
-  border-style: solid;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .ordersTable:global(.__wab_instance) {
-    height: auto;
-    padding: 0px;
-  }
+  padding: 16px;
 }
 .tripsView {
   display: flex;
