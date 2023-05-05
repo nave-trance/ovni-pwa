@@ -7,14 +7,14 @@
   justify-content: center;
   align-items: flex-start;
   background: var(--token-u4-1U5i2CHHR);
-  box-shadow: 0px 2px 2px 2px #00000033;
+  box-shadow: 3px 3px 0px 2px #00000033;
   grid-column-start: 1;
   grid-column-end: -1;
   border-radius: 8px;
   border: 1px solid var(--token-4u9Kq42G97yE);
 }
 .root:hover {
-  box-shadow: 0px 2px 12px 2px #00000033;
+  box-shadow: 3px 3px 4px 2px #00000033;
   border: 2px dashed var(--token--TuVbdMEkwNy);
 }
 .root___focusVisibleWithin {
@@ -41,6 +41,9 @@
 }
 :where(.section > *) {
   grid-column: 4;
+}
+.root:hover .section {
+  padding: 7px;
 }
 :where(.root:hover .section > *) {
   grid-column: 4;

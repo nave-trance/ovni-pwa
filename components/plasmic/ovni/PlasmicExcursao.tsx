@@ -492,7 +492,9 @@ function PlasmicExcursao__RenderFunc(props: {
                   className={classNames(projectcss.all, sty.right)}
                 >
                   {true ? (
-                    <div
+                    <p.Stack
+                      as={"div"}
+                      hasGap={true}
                       className={classNames(projectcss.all, sty.freeBox__m4Z9)}
                     >
                       {true ? (
@@ -673,7 +675,7 @@ function PlasmicExcursao__RenderFunc(props: {
                           </IconLabel>
                         </p.Stack>
                       ) : null}
-                    </div>
+                    </p.Stack>
                   ) : null}
                 </div>
               ) : null}
