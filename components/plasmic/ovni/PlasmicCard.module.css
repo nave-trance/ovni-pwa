@@ -8,10 +8,14 @@
   align-items: flex-start;
   background: var(--token-u4-1U5i2CHHR);
   box-shadow: 3px 3px 0px 2px #00000033;
+  transition-property: border-color, border;
+  transition-duration: 0.5s, 0.5s;
   grid-column-start: 1;
   grid-column-end: -1;
+  -webkit-transition-property: border-color, border;
+  -webkit-transition-duration: 0.5s, 0.5s;
   border-radius: 8px;
-  border: 1px solid var(--token-4u9Kq42G97yE);
+  border: 2px solid var(--token-4u9Kq42G97yE);
 }
 .root:hover {
   box-shadow: 3px 3px 4px 2px #00000033;
@@ -43,7 +47,7 @@
   grid-column: 4;
 }
 .root:hover .section {
-  padding: 7px;
+  padding: 8px;
 }
 :where(.root:hover .section > *) {
   grid-column: 4;

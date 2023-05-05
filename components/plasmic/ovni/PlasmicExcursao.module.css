@@ -239,7 +239,7 @@
     display: flex;
   }
 }
-.freeBox__m4Z9 {
+.freeBox {
   display: flex;
   position: relative;
   flex-direction: row;
@@ -250,7 +250,7 @@
   min-width: 0;
   padding: 0px 16px 0px 0px;
 }
-.freeBox__m4Z9 > :global(.__wab_flex-container) {
+.freeBox > :global(.__wab_flex-container) {
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
@@ -259,17 +259,17 @@
   width: calc(100% + var(--token-c9dfRwU7m));
   --plsmc-col-gap: var(--token-c9dfRwU7m);
 }
-.freeBox__m4Z9 > :global(.__wab_flex-container) > *,
-.freeBox__m4Z9 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__m4Z9 > :global(.__wab_flex-container) > picture > img,
-.freeBox__m4Z9
+.freeBox > :global(.__wab_flex-container) > *,
+.freeBox > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox > :global(.__wab_flex-container) > picture > img,
+.freeBox
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
   > img {
   margin-left: var(--token-c9dfRwU7m);
 }
-.freeBox__m4Z9 {
+.freeBox {
   display: flex;
   position: relative;
   flex-direction: row;
@@ -283,12 +283,12 @@
   padding: 0px 16px 0px 0px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__m4Z9 {
+  .freeBox {
     padding-right: 0px;
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__m4Z9 > :global(.__wab_flex-container) {
+  .freeBox > :global(.__wab_flex-container) {
     justify-content: center;
     align-items: center;
     margin-left: calc(0px - 0px);
@@ -299,10 +299,10 @@
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__m4Z9 > :global(.__wab_flex-container) > *,
-  .freeBox__m4Z9 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-  .freeBox__m4Z9 > :global(.__wab_flex-container) > picture > img,
-  .freeBox__m4Z9
+  .freeBox > :global(.__wab_flex-container) > *,
+  .freeBox > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+  .freeBox > :global(.__wab_flex-container) > picture > img,
+  .freeBox
     > :global(.__wab_flex-container)
     > :global(.__wab_slot)
     > picture
@@ -312,7 +312,7 @@
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__m4Z9 {
+  .freeBox {
     justify-content: center;
     align-items: center;
     padding-right: 0px;
@@ -507,7 +507,7 @@
   flex-shrink: 0;
   min-height: 0;
 }
-.text__aU4Ik {
+.text {
   position: relative;
   height: auto;
   max-width: 100%;
@@ -592,7 +592,7 @@
     )
     var(--plsmc-viewport-gap) minmax(0, var(--plsmc-wide-chunk)) 1fr;
   border-radius: 0px;
-  padding: 8px 0;
+  padding: 0px;
   border-top: 1px solid var(--token-4u9Kq42G97yE);
 }
 :where(.body > *) {
@@ -611,8 +611,12 @@
   height: auto;
   max-width: 100%;
   overflow: hidden;
+  transition-property: all;
+  transition-duration: 2s;
   grid-column-start: 1;
   grid-column-end: -1;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 2s;
   padding: 8px;
 }
 .salesView > :global(.__wab_flex-container) {
@@ -630,8 +634,12 @@
   height: auto;
   max-width: 100%;
   overflow: hidden;
+  transition-property: all;
+  transition-duration: 2s;
   grid-column-start: 1;
   grid-column-end: -1;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 2s;
   padding: 8px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -808,119 +816,15 @@
   max-width: 100%;
   object-fit: cover;
   position: relative;
+  transform: none;
   min-width: 0;
   padding: 16px;
 }
-.tripsView {
+.tripView:global(.__wab_instance) {
+  position: relative;
+  transition-property: all;
+  transition-duration: 2s;
   display: flex;
-  position: relative;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  grid-column-start: 1;
-  grid-column-end: -1;
-  padding: 8px;
-}
-.route {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  min-width: 25%;
-  padding: 8px 8px 8px 40px;
-}
-.route > :global(.__wab_flex-container) {
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  margin-top: calc(0px - var(--token-IGX7LhJueKhL));
-  height: calc(100% + var(--token-IGX7LhJueKhL));
-}
-.route > :global(.__wab_flex-container) > *,
-.route > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.route > :global(.__wab_flex-container) > picture > img,
-.route > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
-  margin-top: var(--token-IGX7LhJueKhL);
-}
-.route {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  min-width: 25%;
-  padding: 8px 8px 8px 40px;
-}
-.freeBox__rHPi7 {
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 8px 16px;
-}
-.text__zewVm {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  font-size: var(--token-zXuA2tUoppBp);
-  font-weight: 700;
-  min-width: 0;
-  padding: 0px;
-}
-.passengers {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 8px;
-}
-.freeBox__y7U9O {
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 8px 16px;
-}
-.text__enEud {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  font-size: var(--token-zXuA2tUoppBp);
-  font-weight: 700;
-  min-width: 0;
-  padding: 0px;
-}
-.ticketsTable:global(.__wab_instance) {
-  width: 100%;
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: cover;
-  position: relative;
-  min-width: 0;
-  padding: 16px;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 2s;
 }

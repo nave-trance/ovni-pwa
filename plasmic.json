@@ -300,6 +300,32 @@
           "cssFilePath": "plasmic/ovni/PlasmicCard.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "ibDSAEBazH",
+          "name": "TripView",
+          "type": "managed",
+          "projectId": "s4A8zbVV2YneJHZ4PPAS7d",
+          "renderModuleFilePath": "plasmic/ovni/PlasmicTripView.tsx",
+          "importSpec": {
+            "modulePath": "TripView.tsx"
+          },
+          "cssFilePath": "plasmic/ovni/PlasmicTripView.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "CNL2SJMT4Y",
+          "name": "TripDetail",
+          "type": "managed",
+          "projectId": "s4A8zbVV2YneJHZ4PPAS7d",
+          "renderModuleFilePath": "plasmic/ovni/PlasmicTripDetail.tsx",
+          "importSpec": {
+            "modulePath": "TripDetail.tsx"
+          },
+          "cssFilePath": "plasmic/ovni/PlasmicTripDetail.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
