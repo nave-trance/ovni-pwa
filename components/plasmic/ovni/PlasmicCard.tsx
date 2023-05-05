@@ -102,6 +102,14 @@ function PlasmicCard__RenderFunc(props: {
   const currentUser = p.useCurrentUser?.() || {};
   const [$queries, setDollarQueries] = React.useState({});
 
+  const [isRootFocusVisibleWithin, triggerRootFocusVisibleWithinProps] =
+    useTrigger("useFocusVisibleWithin", {
+      isTextInput: false
+    });
+  const triggers = {
+    focusVisibleWithin_root: isRootFocusVisibleWithin
+  };
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -116,13 +124,17 @@ function PlasmicCard__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root
+        sty.root,
+        { [sty.root___focusVisibleWithin]: triggers.focusVisibleWithin_root }
       )}
+      data-plasmic-trigger-props={[triggerRootFocusVisibleWithinProps]}
     >
       <section
         data-plasmic-name={"section"}
         data-plasmic-override={overrides.section}
-        className={classNames(projectcss.all, sty.section)}
+        className={classNames(projectcss.all, sty.section, {
+          [sty.section___focusVisibleWithin]: triggers.focusVisibleWithin_root
+        })}
       >
         <div
           data-plasmic-name={"freeBox"}

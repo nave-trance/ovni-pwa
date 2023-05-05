@@ -17,7 +17,8 @@
   box-shadow: 0px 2px 12px 2px #00000033;
   border: 2px dashed var(--token--TuVbdMEkwNy);
 }
-.root:active {
+.root___focusVisibleWithin {
+  outline: none;
   border-width: 2px;
   border-color: var(--token--TuVbdMEkwNy);
 }
@@ -44,7 +45,10 @@
 :where(.root:hover .section > *) {
   grid-column: 4;
 }
-:where(.root:active .section > *) {
+.root .section___focusVisibleWithin {
+  outline: none;
+}
+:where(.root .section___focusVisibleWithin > *) {
   grid-column: 4;
 }
 .freeBox {

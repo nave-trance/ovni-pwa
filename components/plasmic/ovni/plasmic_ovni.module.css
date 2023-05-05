@@ -142,6 +142,18 @@
   --mixin-EMRJHyPIM3sF9_white-space: pre-wrap;
 }
 
+@media (min-width: 0px) and (max-width: 768px) {
+  .plasmic_default_styles,
+  .plasmic_default_styles:where(.global_schedule_override) {
+    --mixin-G8NVhu6bK5AKk_font-size: 32px;
+    --mixin-G8NVhu6bK5AKk_white-space: pre-wrap;
+    --mixin-gOcEyg8aoKGB8_font-size: 24px;
+    --mixin-gOcEyg8aoKGB8_white-space: pre-wrap;
+    --mixin-DWjEKMXLZd3-x_font-size: 20px;
+    --mixin-DWjEKMXLZd3-x_white-space: pre-wrap;
+  }
+}
+
 :where(.all) {
   display: block;
   white-space: inherit;
